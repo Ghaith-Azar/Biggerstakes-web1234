@@ -63,7 +63,7 @@ body {
 }
 @media screen and (max-width: 520px){
     .hero hq{
-      font-size: 35px;
+       font-size: 20px;
     }
   }
 

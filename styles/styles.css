@@ -62,8 +62,8 @@ body {
     animation: fadeInDown 1s ease-out;
 }
 @media screen and (max-width: 520px){
-    .hero hq{
-       font-size: 20px;
+    .hero h1{
+       font-size: 30px;
     }
   }
 

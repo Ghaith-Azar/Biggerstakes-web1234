@@ -1,0 +1,231 @@
+/* Existing CSS */
+.top-picks {
+    padding: 40px 0;
+    background-color: #184b62;
+    padding-left: 100px;
+    padding-right: 100px; 
+}
+
+.top-picks h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e9f0f3;
+    animation: slideInLeft 1s ease-out;
+    padding-bottom: 5px;
+    border-bottom: #A4161A 4px solid;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.top-picks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+.top-pick {
+    background-color: #030a0e;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* padding-left: 125px;
+    padding-right: 125px; */
+
+}
+
+.top-pick:hover {
+    transform: scale(1.037);
+    background-color: #B1A7A6; /* Dim the background */
+}
+
+.top-pick h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.top-pick p {
+    font-size: 18px;
+}
+
+.top-pick-large {
+    grid-column: span 2;
+}
+
+
+
+/* PC */
+.top-pick-site-logo-1 img{
+    height: 196.5px;
+    width: 375px;
+    border-radius: 13px;
+    margin-bottom: 10px;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+}
+/* PC AND PHONE */
+@media  screen and (max-width: 983px) {
+    .top-pick-site-logo-1 img{
+        height: 30%;
+        width: 90%;
+    }
+}
+
+
+
+
+/* PC */
+.top-pick-site-logo-2 img{
+    height: 10% ;
+    width: 60% ;
+    margin: 0px 10px 0px 0px ;
+    border-radius: 13px;
+    margin-bottom: 10px;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+}
+/* MOBILE */
+@media screen and (max-width: 953px){
+    .top-pick-site-logo-2 img{
+        height: 90% ;
+        width: 80% ;
+    }
+
+
+
+}
+
+
+
+/* PC */
+.top-pick-site-logo-3 img{
+    height: 20%;
+    width: 40%;
+    margin: 0px 10px 0px 0px ;
+    border-radius: 13px;
+    margin-bottom: 10px;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+}
+/* MOBILE */
+@media screen and (max-width: 953px){
+    .top-pick-site-logo-3 img{
+        height: 80% ;
+        width: 70% ;
+        margin-bottom: 2px;
+        padding-bottom: 2px;
+    }
+
+
+
+}
+
+
+
+
+
+
+.top-pick-site-logo-4 img {
+    height: 20px;
+    width: 20px;
+    margin: 0px 10px 0px 0px ;
+    border-radius: 13px;
+    margin-bottom: 10px;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+.visit-site-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #A4161A;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+.visit-site-btn:hover{
+    color: blueviolet;
+}
+
+
+.top-pick:hover .visit-site-btn {
+    display: block;
+}
+
+.top-pick button a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.top-pick button a:hover{
+    color: blueviolet;
+}
+
+.top-pick .code{
+    font-family: 'VCR';
+}
+
+
+
+
+
+
+/* ON MOBILE */
+#picks-mobile{
+    display: none;
+}
+
+
+@media screen and (max-width: 676px){
+    #picks-mobile{
+       display: grid;
+    }
+    .top-pick-small{
+        display: none;
+    }
+    .top-pick-medium{
+        display: none;
+    }
+    .top-picks{
+        padding-left: 25px;
+        padding-right: 25px; 
+    }
+}

@@ -1,0 +1,342 @@
+@font-face {
+    font-family: 'VCR';
+    src: url(Fonts/VCR_OSD_MONO_1.001.ttf);
+}
+@font-face {
+    font-family: 'Pixel Font';
+    src: url(Fonts/PixelDigivolve-mOm9.ttf);
+}
+
+
+html, main, header{
+    font-family: 'Pixel Font';
+  
+    
+}
+
+html{
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;  
+    
+}
+
+.wrapper {
+    padding-bottom: 150px; /* Height of the footer */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #E7F9A9;
+    color: #442F38;
+    transition: background-color 0.3s ease;
+    min-height: 100%;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    color: #e29292;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px; /* To offset the fixed header */
+    position: relative;
+    background-color: #1c5670;
+    border-bottom: black 4px solid;
+}
+
+.hero h1 {
+    font-size: 45px;
+    animation: fadeInDown 1s ease-out;
+}
+
+    
+@media screen and (max-width: 520px){
+    .hero h1{
+      font-size: 35px;
+    }
+  }
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* .hero p {
+    margin-top: 20px;
+    animation: fadeInUp 1s ease-out;
+} */
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.csgo-sites {
+    padding-top: 40px;
+    background-color: #ffffff;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+}
+@media screen and (max-width: 520px){
+  .csgo-sites .container{
+    display: none;
+  }
+}
+
+.csgo-sites h2 {
+    text-align: center;
+    padding-bottom: 5px;
+    color: #3D0814;
+    animation: slideInRight 1s ease-out;
+    width: 90%;
+    border-bottom: solid 5px #b0314f;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.site-ranks {
+    width: 100%;
+    border-collapse: collapse;
+    padding-top: 20px;
+}
+
+.site-ranks th, .site-ranks td {
+    padding: 10px;
+    text-align: center;
+    border: 1.5px solid #442F38;
+}
+
+.site-ranks th {
+    background-color: #C6B38E;
+    color: #fff;
+}
+
+.site-ranks td {
+    background-color: #9A9B73;
+    color: #442F38;
+}
+.site-ranks td a{
+    text-decoration: none;
+    color: blueviolet;
+}
+
+.site-ranks td a:hover{
+    text-decoration: underline;
+    color: rgb(79, 18, 137);
+}
+
+.csgo-sites p{
+    width: 80%;
+    text-align: center;
+   font-family: monospace;
+   font-weight: bolder;
+  
+}
+
+.paragraph-title {
+    border-bottom: solid 2px #b0314f;
+    padding-bottom: 5px;
+    padding-top: 25px;
+    width: 85%;
+}
+
+.gambling-methods {
+    background: #f3f3f3;
+    padding: 20px;
+    list-style-type: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-bottom:  rgba(0, 0, 0, 0.1) 2px solid;
+    border-top: rgba(0, 0, 0, 0.1) 2px solid;
+    border-left:  rgba(0, 0, 0, 0.1) 2px solid;
+    border-right:  rgba(0, 0, 0, 0.1) 2px solid;
+    width: 85%;
+
+}
+.gambling-methods-items {
+    margin-bottom: 8px;
+    list-style: disc;
+    font-family: 'VCR';
+    font-weight: bolder;
+}
+.note {
+    background: #ffebcd;
+    padding: 10px;
+    border-left: 5px solid #f0ad4e;
+    border-radius: 5px;
+    width: 85%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    
+}
+.gambling-methods-0{
+    list-style: none;
+}
+.gambling-methods-items-0{
+    list-style: none;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.note p{
+    font-family: 'VCR';
+}
+
+
+
+
+
+ .card {
+    width: 85%;
+    /* height: 254px; */
+    background: transparent;
+    border: 2px solid #07ff07;
+    box-shadow: 2px 2px 8px #000000 inset;
+    text-align: center;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 18px;
+    padding-bottom: 10px;
+  }
+  
+  .card:hover {
+    color: #514e4e;
+    box-shadow: 2px 2px 12px #2796c6 inset;
+  }
+  
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+.footer-content{
+    margin-top: 0;
+    padding: 0;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+}
+
+.social-icon {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .logo {
+        margin-bottom: 10px;
+    }
+
+    header nav ul {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .top-picks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        flex: 1 1 calc(40% - 20px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,244 @@
+.feature-section-whole{
+    background-color: #1f617e;
+    padding-top: 20px;
+    border-top: black 4px solid;
+}
+
+.main-container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    margin-top: 0px;
+    padding-left: 125px;
+    padding-right: 125px;
+    box-sizing: border-box;
+}
+
+.secoundary-container {
+    height: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 5px solid #A4161A; 
+    font-size: 17px;
+    color: #e9f0f3; 
+    font-weight: 500;
+}
+
+.site-list {
+    height: auto;
+    width: 100%;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 286px);
+    grid-template-rows: repeat(auto-fill, 260.4px);
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    justify-content: space-between;
+}
+
+.site-card {
+    height: 260.4px;
+    width: 286px;
+    border-radius: 12px;
+    background-color: #030a0e; 
+    border: 1px solid rgb(96, 96, 96); 
+    box-sizing: border-box;
+    font-family: 'VCR';
+    position: relative;
+    overflow: hidden;
+}
+
+.site-card:hover{
+    transform: scale(1.05);
+    background-color: #5e5c5c;
+}
+
+.site-content {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.site-logo {
+    height: 45px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.site-image {
+    height: auto;
+    max-height: 40px;
+    width: auto;
+    max-width: 150px;
+}
+
+img {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.site-name {
+    height: 23px;
+    width: 100%;
+    text-align: center;
+    line-height: 3 px;
+    font-size: 16.5px;
+    text-align: left;
+    color: #D3D3D3; 
+    font-family: 'Pixel Font';
+}
+
+.site-offer {
+    height: 23px;
+    width: 100%;
+    line-height: 18px;
+    font-size: 14px;
+    color: #D3D3D3; 
+    text-align: left;
+}
+
+.site-code-container {
+    height: 65px;
+    width: 100%;
+    background-color: #0a202a; 
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.use-code {
+    height: 17px;
+    width: 100%;
+    line-height: 15px;
+    font-size: 13px;
+    color: #B1A7A6; 
+    text-align: center;
+}
+
+.code {
+    height: 23px;
+    width: 100%;
+    text-align: center;
+    color: #236c8c; 
+    line-height: 24px;
+    font-weight: 600;
+    font-size: 19px;
+    overflow: visible !important;
+}
+
+.site-card:hover .visit-button-container {
+    display: flex;
+}
+
+.visit-button-container {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(1.5px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+    animation: ytmlh1BMrtOkyQbEQpmWw 0.3s linear;
+}
+
+@keyframes ytmlh1BMrtOkyQbEQpmWw {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.visit-button {
+    height: 118px;
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.visit-site-2 {
+    background: #E5383B; 
+    border-radius: 6px;
+    color: #161A1D; 
+}
+
+.visit-site-1 {
+    height: 44px;
+    width: 190px;
+    border-radius: 6px;
+    font-family: 'Roboto';
+    color: #FFFFFF; 
+    line-height: 44px;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    background: #A4161A; 
+    font-family: 'Pixel Font';
+    text-decoration: none;
+}
+
+.visit-site-1:hover{
+    color: blueviolet;
+    text-decoration: none;
+}
+
+
+
+
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 558px) {
+    .site-list {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .site-card {
+        width: 100%;
+    }
+    .site-list {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+    .main-container{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .site-list {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+    .main-container{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}

@@ -1,0 +1,190 @@
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    animation: fadeInUp 1s ease-out;
+    display:fixed;
+    font-family: 'Pixeloid';
+}
+
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 10px;
+    padding-top: 0%;
+    min-width: 200px;
+}
+
+.footer-bottom {
+    margin-bottom: 0;
+    padding-left: 0px;
+    padding-right: 0;
+    padding-top: 2px ;
+    height: 35px;
+    font-weight: bold;
+    font-size: 10;
+    font-family: 'Agency';
+}
+
+.footer-bottom p a{
+    color:#02e901;
+    text-decoration: none;
+    font-family: 'Agency';
+    font-size: large;
+    font-weight: bolder;
+}
+
+.footer-bottom p a:hover{
+    color:#119011;
+    text-decoration: underline;
+}
+
+footer p{
+    font-family: monospace;
+}
+
+.footer-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color:  rgb(239, 168, 36);
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+    
+}
+
+.footer-section ul li a {
+    color: #fff;
+    text-decoration: none;    
+}
+
+.footer-section ul li a:hover {
+    color: #646464;
+}
+
+.footer-section .social-buttons a {
+    margin: 0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-section .social-buttons ul li{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* SOCIAL ICONS */
+.wrapper1 {
+    display: inline-flex;
+    list-style: none;
+    height: 120px;
+    width: 100%;
+    padding-top: 40px;
+    font-family: "Poppins", sans-serif;
+    justify-content: center;
+  }
+  
+  .wrapper1 .icon {
+    position: relative;
+    background: rgb(86, 58, 5);
+    border-radius: 50%;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper1 .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #fff;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper1 .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #fff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper1 .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    
+  }
+  
+  .wrapper1 .icon:hover span,
+  .wrapper1 .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrapper1 .twitter:hover,
+  .wrapper1 .twitter:hover .tooltip,
+  .wrapper1 .twitter:hover .tooltip::before {
+    background: #1da1f2;
+    color: #fff;
+  }
+  
+  .wrapper1 .instagram:hover,
+  .wrapper1 .instagram:hover .tooltip,
+  .wrapper1 .instagram:hover .tooltip::before {
+    background: #e4405f;
+    color: #fff;
+    
+  }
+ 

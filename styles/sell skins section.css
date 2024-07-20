@@ -1,0 +1,7 @@
+.Sell-skins-section {
+    background-color: var(--rich-black); /* #370617ff */
+    border-bottom: rgb(0, 17, 255) 6px solid; /* #03071eff */
+    border-top: white 4px solid; /* #03071eff */
+    padding-bottom: 150px;
+    padding-top: 50px;
+}

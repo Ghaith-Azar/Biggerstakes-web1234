@@ -1,0 +1,16 @@
+.Sell-skins-section {
+    background-color: var(--rich-black); 
+    border-bottom: var(--engineering-orange) 6px solid; 
+    border-top: white 4px solid; 
+    padding-bottom: 45px;
+    padding-top: 15px;
+}
+.title-of-sell-skins{
+    color: #fff;
+    font-size: xx-large;
+}
+@media screen and (max-width:466px) {
+    .title-of-sell-skins{
+        font-size: x-large;
+    }
+}

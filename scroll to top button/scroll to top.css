@@ -7,16 +7,22 @@
     right: 30px; /* Place the button 30px from the right of the page */
     z-index: 99; /* Make sure it does not overlap with other content */
     background-color: var(--princeton-orange); /* Background color */
-    color: white; /* Text color */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
     cursor: pointer; /* Pointer/hand icon */
-    padding: 0px 15px; /* Padding for better visibility */
+    padding: 5px 8px; /* Padding for better visibility */
     border-radius: 10px; /* Rounded corners */
-    font-size: 28px; /* Font size for the arrow */
     box-shadow: 0 4px 12px var(--persimmon); /* Add a shadow */
 }
 
+#scrollToTopBtn img {
+    width: 28px; /* Initial size of the image */
+    height: 28px; /* Initial size of the image */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+#scrollToTopBtn:hover img {
+    transform: scale(1.1); /* Slightly enlarge the image on hover */
+}
 #scrollToTopBtn:hover {
     background-color: var(--persimmon); /* Darker background on hover */
 }
@@ -42,16 +48,15 @@
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
-    #scrollToTopBtn {
-        font-size: 24px; /* Slightly smaller font size for tablets */
-        padding: 0px 12px; /* Adjust padding */
+    #scrollToTopBtn img {
+        width: 24px; /* Slightly smaller image for tablets */
+        height: 24px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    #scrollToTopBtn {
-        font-size: 20px; /* Smaller font size for phones */
-        padding: 0px 10px; /* Adjust padding */
+    #scrollToTopBtn img {
+        width: 20px; /* Smaller image for phones */
+        height: 20px;
     }
 }
-

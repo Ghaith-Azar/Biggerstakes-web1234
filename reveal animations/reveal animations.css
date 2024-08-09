@@ -60,7 +60,7 @@
     .reveal4{
         transform: rotateY(-90deg);
         opacity: 0;
-        transition: all 5s ease;
+        transition: all 1s ease;
     }
 
     .reveal4.active{

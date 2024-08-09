@@ -1,0 +1,57 @@
+
+
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 30px; /* Place the button 30px from the bottom of the page */
+    right: 30px; /* Place the button 30px from the right of the page */
+    z-index: 99; /* Make sure it does not overlap with other content */
+    background-color: var(--princeton-orange); /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    cursor: pointer; /* Pointer/hand icon */
+    padding: 0px 15px; /* Padding for better visibility */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 28px; /* Font size for the arrow */
+    box-shadow: 0 4px 12px var(--persimmon); /* Add a shadow */
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--persimmon); /* Darker background on hover */
+}
+
+#scrollToTopBtn::after {
+    content: "Scroll to top"; /* Text shown on hover */
+    display: none;
+    position: absolute;
+    bottom: 100%; /* Position it above the button */
+    left: 50%; /* Center the text horizontally */
+    transform: translateX(-50%);
+    background-color: var(--princeton-orange);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+#scrollToTopBtn:hover::after {
+    display: block;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #scrollToTopBtn {
+        font-size: 24px; /* Slightly smaller font size for tablets */
+        padding: 0px 12px; /* Adjust padding */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #scrollToTopBtn {
+        font-size: 20px; /* Smaller font size for phones */
+        padding: 0px 10px; /* Adjust padding */
+    }
+}
+

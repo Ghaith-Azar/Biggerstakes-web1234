@@ -56,7 +56,7 @@
 
 @media screen and (max-width: 480px) {
     #scrollToTopBtn img {
-        width: 20px; /* Smaller image for phones */
-        height: 20px;
+        width: 2px; /* Smaller image for phones */
+        height: 2px;
     }
 }

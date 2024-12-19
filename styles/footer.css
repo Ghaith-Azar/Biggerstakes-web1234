@@ -87,5 +87,6 @@ footer {
 }
 
 .footer-bottom a:hover {
-    text-decoration: underline;
+    text-decoration:underline;
+    color:#02e901;
 }

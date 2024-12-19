@@ -48,7 +48,7 @@
 
 .top-pick:hover {
     transform: scale(1.037);
-    background-color: #B1A7A6; /* Dim the background */
+    background-color: #6e6e6e; /* Dim the background */
 }
 
 .top-pick h3 {

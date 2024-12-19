@@ -60,7 +60,7 @@
 
 .site-code-container {
     align-items: center;
-    background-color: var(--rosewood); 
+    background-color: rgb(61, 9, 14); 
     border-radius: 4px;
     display: flex;
     flex-direction: column;

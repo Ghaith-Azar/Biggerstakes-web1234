@@ -1,0 +1,44 @@
+
+
+
+
+/* Simplified CSGO Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    background: var(--rich-black);
+    border-left: 2px solid var(--engineering-orange);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        to bottom,
+        var(--sinopia),
+        var(--engineering-orange)
+    );
+    border: 2px solid var(--penn-red);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--engineering-orange);
+    box-shadow: 0 0 8px var(--persimmon);
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(
+        to right,
+        var(--rich-black) 30%,
+        rgba(184, 15, 10, 0.1) 50%,
+        var(--rich-black) 70%
+    );
+}
+
+/* Minimal animations */
+::-webkit-scrollbar-thumb {
+    transition: all 0.2s ease;
+}
+
+/* Simple corner styling */
+::-webkit-scrollbar-corner {
+    background: var(--rich-black);
+}

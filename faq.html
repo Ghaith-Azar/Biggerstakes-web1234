@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="styles/root colors and fonts.css">
     <link rel="stylesheet" href="scroll to top button/scroll to top.css">
+    <link rel="stylesheet" href="styles/faq page.css">
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
@@ -24,56 +26,70 @@
 
    <br><br><br><br><br><br><br>
 
-    <nav class="navbar fixed-top navbar-dark">
-        <div class="container-fluid">
-
-            <div class="website-logo">
-              <a href="index.html">
-                    <img src="icons and images/biggerstakes v2 logo icon.png" alt="Website Logo" class="logo">
-                </a>
-            </div>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
-          <a class="navbar-brand" href="#" id="navbar-title-faq">Frequently Asked Questions</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+
+
+
+
+   <nav class="navbar fixed-top navbar-dark">
+    <div class="container-fluid">
+        <div class="website-logo">
+            <a href="index.html">
+                <img src="icons and images/biggerstakes v2 logo icon.png" alt="Website Logo" class="logo">
+            </a>
+        </div>
+
+        <a class="navbar-brand" href="#" id="navbar-title">
+            Frequently Asked
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
             <span class="navbar-toggler-icon"></span>
-          </button>
+        </button>
 
-          
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" id="btn-close"></button>
+                <h5 class="offcanvas-title">MENU</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
             </div>
 
             <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                
-                    <li class="nav-item"> 
-                        <a class="nav-link active" aria-current="page" href="about.html">FAQ</a>
-                      </li>
-                          
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html">Home</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About Us</a>
-                  </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact Us</a>
-                  </li>
-                  
-                  <br><br>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="faq.html">
+                            <i class="fas fa-question-circle fa-fw me-2">  </i>FAQ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home fa-fw me-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">
+                            <i class="fas fa-info-circle fa-fw me-2"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope fa-fw me-2"></i>Contact
+                        </a>
+                    </li>
+                   
+              
+                </ul>
 
-                  <li class="nav-item" id="devby">
-                    A Website by <a href="https://www.skylinewebdevelopment.com/" target="_blank">Skyline Web Solutions</a>
-                  </li>
+                <div id="devby">
+                    Developed by <a href="https://www.skylinewebdevelopment.com/">Skyline Web Solutions</a>
+                </div>
             </div>
-          </div>
         </div>
-      </nav>
+    </div>
+</nav>
 
 
     <main>
@@ -133,164 +149,7 @@
 
                 </div>
 
-                <style>
-                   /* styles/faq.css */
-
-/* CS:GO Theme Styles */
-body {
-    background: #121212 url('csgo_bg_pattern.png') repeat; /* Add tactical pattern */
-    font-family: 'Agency', sans-serif;
-}
-
-/* Tactical FAQ Container */
-.container {
-    background: linear-gradient(145deg, #1a1a1a, #121212) !important;
-    border: 3px solid var(--csgo-primary) !important;
-    box-shadow: 0 0 30px rgba(75, 83, 32, 0.4) !important;
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
-    margin-top: 2rem;
-}
-
-.container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(75, 83, 32, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(75, 83, 32, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
-    pointer-events: none;
-}
-
-/* CS:GO FAQ Items */
-.faq-item {
-    background: rgba(32, 35, 18, 0.9);
-    border: 1px solid var(--csgo-primary);
-    border-radius: 6px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.faq-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
-}
-
-.faq-item h2 {
-    font-family: 'Retro Gaming', sans-serif !important;
-    color: #c5c5c5 !important;
-    font-size: 1.4rem !important;
-    text-transform: uppercase;
-    padding-left: 35px;
-    margin-bottom: 1rem;
-}
-
-.faq-item h2::before {
-    content: '✛';
-    color: var(--engineering-orange);
-    font-size: 1.4em;
-    position: absolute;
-    left: 15px;
-    top: 1.2rem;
-}
-
-.faq-item p {
-    font-family: 'Pixeloid', sans-serif !important;
-    color: #8b8b8b !important;
-    font-size: 1.1rem !important;
-    line-height: 1.6;
-    padding-left: 35px;
-    border-left: 2px solid var(--csgo-primary);
-    margin-left: 15px;
-}
-
-/* Tactical Header */
-h1 {
-    font-family: 'Agency', sans-serif !important;
-    color: #d4af37 !important;
-    text-shadow: 2px 2px var(--csgo-primary);
-    letter-spacing: 2px;
-    font-size: 2.5rem !important;
-    position: relative;
-    padding-bottom: 1.5rem !important;
-    margin-bottom: 2rem !important;
-}
-
-h1::after {
-    content: "";
-    display: block;
-    width: 80%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--csgo-primary), transparent);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
-
-/* CS:GO Animations */
-@keyframes weaponInspect {
-    0% { transform: rotateZ(0deg) translateY(0); }
-    25% { transform: rotateZ(2deg) translateY(-2px); }
-    50% { transform: rotateZ(-2deg) translateY(2px); }
-    100% { transform: rotateZ(0deg) translateY(0); }
-}
-
-.faq-item:hover {
-    animation: weaponInspect 0.4s ease;
-}
-
-/* Mobile Tactical Adjustments */
-@media (max-width: 768px) {
-    .container {
-        width: 95% !important;
-        padding: 1rem !important;
-    }
-    
-    #navbar-title-faq {
-        font-size: 1.4rem !important;
-        padding-left: 35px;
-    }
-    
-    #navbar-title-faq::before {
-        width: 25px;
-        height: 25px;
-    }
-    
-    .faq-item {
-        padding: 1rem;
-    }
-    
-    .faq-item h2 {
-        font-size: 1.2rem !important;
-    }
-    
-    .faq-item p {
-        font-size: 1rem !important;
-    }
-}
-
-/* Add to fonts.css */
-@font-face {
-    font-family: 'Counter-Strike';
-    src: url('fonts/cs_regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-
-
-                </style>
+              
 
     </main>
 
@@ -335,6 +194,11 @@ h1::after {
  <script src="scroll to top button/scroll to top smaller.js"></script>
  <script src="hover-phones.js"></script>
 
+ <style>
+    body{
+        background-color: #121212;
 
+    }
+</style>
 </body>
 </html>

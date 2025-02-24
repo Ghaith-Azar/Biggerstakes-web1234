@@ -122,26 +122,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
 .scene {
     perspective: 1000px;
 }
@@ -216,8 +196,6 @@ body {
 
 
 
-
-
 /* SELL SKINS SECTION */
 .Sell-skins-section {
     background-color: var(--rich-black); 
@@ -244,21 +222,7 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* 
-
-
-
 .note::before {
     content: '⚠️';
     position: absolute;
@@ -272,8 +236,6 @@ body {
     right: 20px;
     filter: drop-shadow(0 0 5px #FFD700);
 }
-
-
 .paragraph-title::before {
     content: '♦♣♠♥';
     color: #f7931e;
@@ -282,24 +244,7 @@ body {
     top: -15px;
     opacity: 0.5;
 }
-
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -818,53 +763,6 @@ body {
             padding: 1rem;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

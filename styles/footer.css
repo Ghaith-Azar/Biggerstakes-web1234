@@ -160,44 +160,90 @@ footer::after {
 
 
 /* Updated CSS for social icons */
-.social-icons {
+
+
+.containerrrr {
     display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 20px;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    padding: 8px;
+  }
+  
+  .Btn {
+    border: none;
     border-radius: 50%;
-    background: linear-gradient(145deg, var(--sinopia), var(--princeton-orange));
-    border: 2px solid var(--engineering-orange);
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-}
-
-.social-icon:hover {
-    transform: scale(1.15) rotate(8deg);
-    background: linear-gradient(145deg, var(--engineering-orange), var(--sinopia));
-    box-shadow: 0 0 15px var(--selective-yellow);
-    filter: drop-shadow(0 0 8px var(--persimmon));
-}
-
-.social-icon path {
-    transition: fill 0.3s ease;
-}
-
-.social-icon:hover path {
-    fill: var(--selective-yellow);
-}
-
-/* Set specific colors for each icon */
-.instagram .social-icon {
-    background: linear-gradient(45deg, #405DE6, #833AB4, #E1306C);
-}
-
-.twitter .social-icon {
-    background: linear-gradient(45deg, #1DA1F2, #0F8BED);
-}
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-left: 10px;
+  }
+  
+  .instagram {
+    background: #f09433;
+    background: -moz-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: -webkit-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  }
+  
+  .twitter {
+    background-color: #1da1f2;
+  }
+  
+  .Btn:hover {
+    width: 110px;
+    transition-duration: 0.4s;
+    border-radius: 30px;
+  }
+  
+  .Btn:hover .text {
+    opacity: 1;
+    transition-duration: 0.4s;
+  }
+  
+  .Btn:hover .svgIcon {
+    opacity: 0;
+    transition-duration: 0.3s;
+  }
+  
+  .text {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    width: 120px;
+    font-weight: 600;
+    opacity: 0;
+    transition-duration: 0.4s;
+    font-family: monospace;
+  }
+  
+  .svgIcon {
+    transition-duration: 0.3s;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }

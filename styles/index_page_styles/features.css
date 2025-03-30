@@ -182,11 +182,15 @@
     text-align: center;
     text-decoration: none;
     width: 190px;
+    transition: all 0.3s ease;
+
 }
 
 .visit-site-1:hover {
     color: var(--rich-black);
     text-decoration: none;
+    transform: translateY(-3px);
+
 }
 
 .visit-site-2 {
@@ -283,8 +287,11 @@ img {
 }
 
 .copy-code-button:hover {
-    background: #d35400;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+        color: var(--rich-black);
+        text-decoration: none;
+    
+    
 }
 
 

@@ -709,13 +709,6 @@ body {
         position: relative;
     }
 
-    .card {
-        background: #1A1A1A;
-        border: 1px solid var(--dark-border);
-        border-radius: 6px;
-        padding: 2rem;
-        margin: 2rem 0;
-    }
 
     /* Icons */
     .fas {

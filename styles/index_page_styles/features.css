@@ -252,3 +252,94 @@ img {
         opacity: 1;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* COPY CODE BUTTON  */
+.copy-code-button {
+    background: var(--princeton-orange);
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Pixel Font';
+    font-size: 19px;
+    font-weight: 600;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    width: 190px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.copy-code-button:hover {
+    background: #d35400;
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+.notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.copy-notification {
+    position: relative;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-family: 'Pixel Font';
+    transform: translateX(150%);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid var(--princeton-orange);
+}
+
+.copy-notification.show {
+    transform: translateX(0);
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--princeton-orange);
+    animation: progress 3s linear forwards;
+}
+
+@keyframes progress {
+    from { width: 100%; }
+    to { width: 0%; }
+}

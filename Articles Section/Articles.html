@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="x-icon" href="/icons and images/biggerstakes v2 logo icon.png">
-    <title>THIS IS THE TITLE NAME OF SITE-ARTICLE</title>
+    <title>BiggerStakes - Articles</title>
     
     <link rel="stylesheet" href="/styles/nav bar main.css">
     <link rel="stylesheet" href="/styles/footer.css">
     <link rel="stylesheet" href="/styles/fonts.css">
     <link rel="stylesheet" href="/styles/root colors and fonts.css">
     <link rel="stylesheet" href="/styles/scrollbar.css">
+    <link rel="stylesheet" href="articles styles/main page.css">
+    <link rel="stylesheet" href="/scroll to top button/scroll to top.css">
 
 
 
@@ -92,7 +94,7 @@
                 </ul>
 
                 <div id="devby">
-                    Developed by <a href="https://www.skylinewebdevelopment.com/">Skyline Web Solutions</a>
+                    Developed by <a href="https://www.skylinewebdevelopment.com/" target="_blank">Skyline Web Solutions</a>
                 </div>
             </div>
         </div>
@@ -118,247 +120,26 @@
 
     <body>
         
-        <style>
-            /* FONTS */
-            @font-face { font-family: 'Agency'; src: url(Fonts/agencyfb_bold.ttf); }
-            @font-face { font-family: 'VCR'; src: url(Fonts/VCR_OSD_MONO_1.001.ttf); }
-            @font-face { font-family: 'Pixel Font'; src: url(Fonts/PixelDigivolve-mOm9.ttf); }
-            @font-face { font-family: 'Pixeloid'; src: url(Fonts/PixeloidSans-mLxMm.ttf); }
-            @font-face { font-family: 'Pixeloid Bold'; src: url(Fonts/PixeloidSansBold-PKnYd.ttf); }
-            @font-face { font-family: 'Retro Gaming'; src: url(Fonts/Retro\ Gaming.ttf); }
-    
-            :root {
-                --csgo-primary: #4b5320;
-                --csgo-black: #1a1a1a;
-                --csgo-dark-gray: #2d2d2d;
-                --csgo-orange: #f7931e;
-                --csgo-yellow: #ffd700;
-                --csgo-metal: #4d4d4d;
-                --csgo-hud: #333;
-                --rich-blackk: #020511;
-                --csgo-red: #d00000;
-            }
-    
-            body {
-                font-family: 'Retro Gaming', Arial, sans-serif;
-                margin: 0;
-                background-color: var(--rich-blackk);
-                color: var(--csgo-orange);
-                letter-spacing: 1px;
-            }
-    
-            .articles-container {
-                max-width: 1200px;
-                margin: 0 auto;
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 25px;
-                padding: 20px;
-            }
-    
-            .article-card {
-                background: linear-gradient(145deg, 
-                    var(--csgo-primary) 0%, 
-                    var(--csgo-dark-gray) 100%);
-                border-radius: 4px;
-                overflow: hidden;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                text-decoration: none;
-                border: 2px solid var(--csgo-metal);
-                position: relative;
-            }
-    
-            .article-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 20px rgba(251, 146, 25, 0.2);
-                border-color: var(--csgo-orange);
-            }
-    
-            .card-image {
-                width: 100%;
-                height: 180px;
-                padding: 15px;
-                background: var(--csgo-dark-gray);
-                background-size: 4px 4px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                overflow: hidden;
-            }
-    
-            .card-image::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255,255,255,0.1),
-                    transparent
-                );
-                animation: scanline 4s infinite linear;
-            }
-    
-            .card-image img {
-                max-width: 80%;
-                max-height: 80%;
-                object-fit: contain;
-                transition: transform 0.3s ease;
-                filter: drop-shadow(0 0 2px var(--csgo-orange));
-                z-index: 1;
-            }
-    
-            .article-card:hover .card-image img {
-                transform: scale(1.1) rotateZ(-2deg);
-                filter: drop-shadow(0 0 3px var(--csgo-yellow));
-            }
-    
-            .card-content {
-                padding: 20px;
-                background: var(--csgo-hud);
-                text-align: center;
-                position: relative;
-                border-top: 2px solid var(--csgo-metal);
-            }
-    
-            .card-title {
-                margin: 0;
-                font-size: 1.4rem;
-                color: var(--csgo-yellow);
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                font-family: 'Agency', sans-serif;
-                text-shadow: 2px 2px 0 var(--csgo-red),
-                            -1px -1px 0 var(--csgo-red);
-                transition: text-shadow 0.3s ease;
-            }
-    
-            .card-content::before {
-                content: "";
-                position: absolute;
-                top: -2px;
-                left: 0;
-                right: 0;
-                height: 2px;
-                background: linear-gradient(
-                    90deg,
-                    transparent,
-                    var(--csgo-orange),
-                    transparent
-                );
-                animation: border-glow 3s infinite linear;
-            }
-    
-            @keyframes scanline {
-                0% { left: -100%; }
-                100% { left: 100%; }
-            }
-    
-            @keyframes border-glow {
-                0% { background-position: -200% 0; }
-                100% { background-position: 200% 0; }
-            }
-    
-            @media (max-width: 768px) {
-                .articles-container {
-                    grid-template-columns: 1fr;
-                }
-                
-                .card-title {
-                    font-size: 1.2rem;
-                }
-            }
-        </style>
+       
     </head>
     <body>
+        <center><h1>Crypto Casinos</h1></center>
+
         <div class="articles-container">
-            <!-- All cards with same logo -->
-            <a href="bchgame.html" class="article-card">
+
+
+            <a href="crypto websites/stake.html" class="artcle-card" target="_blank">
                 <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/bch tgme logo.png" alt="bch game logo">
+                    <img src="/icons and images/gambling websites logos/stake logo.png" alt="Stake Logo">
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">BCH Game</h3>
+                    <h3 class="card-title">Stake</h3>
                 </div>
             </a>
-    
-            <a href="clashgg.html" class="article-card">
-                <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/clash gg logo.png" alt="clash gg logo">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Clash GG</h3>
-                </div>
-            </a>
-    
-            <!-- Repeat for all other cards -->
-            <!-- CSGO Empire -->
-            <a href="csgoempire.html" class="article-card">
-                <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/csgoempire logo.webp" alt="csgoempire logo">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">CSGO Empire</h3>
-                </div>
-            </a>
-    
-            <!-- CSGO Gem -->
-            <a href="csgogem.html" class="article-card">
-                <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/CSGOGEM-logo-Photoroom.png" alt="CSGOGEM-logo">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">CSGO Gem</h3>
-                </div>
-            </a>
-    
-            <!-- CSGO Luck -->
-            <a href="csgoluck.html" class="article-card">
-                <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/csgo luck logo.png" alt="csgo luck logo">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">CSGO Luck</h3>
-                </div>
-            </a>
-    
-            <!-- CSGO Polygon -->
-            <a href="csgopolygon.html" class="article-card">
-                <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/csgo polygon logo.png" alt="csgo polygon logo">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">CSGO Polygon</h3>
-                </div>
-            </a>
-    
-            <!-- CSGO Roll -->
-            <a href="csgoroll.html" class="article-card">
-                <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/csgoroll logo.webp" alt="csgoroll logo">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">CSGO Roll</h3>
-                </div>
-            </a>
-    
-            <!-- DatDrop -->
-            <a href="datdrop.html" class="article-card">
-                <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/datdrop logo.png" alt="datdrop logo">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">DatDrop</h3>
-                </div>
-            </a>
-    
-            <!-- Duelbits -->
-            <a href="duelbits.html" class="article-card">
+
+
+
+            <a href="crypto websites/duelbits.html" class="artcle-card" target="_blank">
                 <div class="card-image">
                     <img src="/icons and images/gambling websites logos/duelbits logo.png" alt="duelbits logo">
                 </div>
@@ -367,8 +148,9 @@
                 </div>
             </a>
     
-            <!-- Gamdom -->
-            <a href="gamdom.html" class="article-card">
+
+
+            <a href="crypto websites/gamdom.html" class="artcle-card" target="_blank">
                 <div class="card-image">
                     <img src="/icons and images/gambling websites logos/gamdom logo.png" alt="gamdom logo">
                 </div>
@@ -377,28 +159,23 @@
                 </div>
             </a>
     
-            <!-- KeyDrop -->
-            <a href="keydrop.html" class="article-card">
+
+
+
+            <a href="crypto websites/bcgame.html" class="artcle-card" target="_blank">
                 <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/key drop logo.png" alt="key drop logo">
+                    <img src="/icons and images/gambling websites logos/bc game logo.png" alt="bc game  logo">
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">KeyDrop</h3>
+                    <h3 class="card-title"> BC.Game</h3>
                 </div>
             </a>
-    
-            <!-- Rain GG -->
-            <a href="raingg.html" class="article-card">
-                <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/RainGG-Logo.png" alt="RainGG-Logo">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Rain GG</h3>
-                </div>
-            </a>
-    
-            <!-- Rollbit -->
-            <a href="rollbit.html" class="article-card">
+
+
+
+
+
+            <a href="crypto websites/rollbit.html" class="artcle-card" target="_blank">
                 <div class="card-image">
                     <img src="/icons and images/gambling websites logos/rollbit logo.png" alt="rollbit logo">
                 </div>
@@ -407,16 +184,540 @@
                 </div>
             </a>
     
-            <!-- Stake -->
-            <a href="stake.html" class="article-card">
+
+
+
+
+            <a href="crypto websites/bchgame.html" class="artcle-card" target="_blank">
                 <div class="card-image">
-                    <img src="/icons and images/gambling websites logos/stake logo.png" alt="Stake Logo">
+                    <img src="/icons and images/gambling websites logos/bch tgme logo.png" alt="bch game logo">
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">Stake</h3>
+                    <h3 class="card-title">BCH Game</h3>
                 </div>
             </a>
+    
+
+
+
+
+            
+            <a href="crypto websites/rustrepaer.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/RustReaper logo.png" alt="RustReaper logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">RustReaper </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="crypto websites/knifex.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/knifex logo.png" alt="knifex logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"> KnifeX</h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+          
+
+            
+            <a href="crypto websites/thunderpick.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/thunderpick logo.png" alt=" thunderpicklogo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">thunderpick.io </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="crypto websites/bingobet.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/bingo bet logo.png" alt="bingo bet logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Bingo Bet </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="crypto websites/upgrader.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/upgrader-Photoroom.png" alt="upgrader logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Upgrader </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="crypto websites/plunder.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/Plunder1.PNG" alt="Plunder logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Plunder </h3>
+                </div>
+            </a>
+    
+
+
+
+
+            
+            <a href="crypto websites/casesgg.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/casesgg-Photoroom.png" alt="casesgg logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Cases.gg </h3>
+                </div>
+            </a>
+    
+
+
+
+
+<!--             
+            <a href=".html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/" alt=" logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"> </h3>
+                </div>
+            </a>
+    
+ -->
+
+
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <center><h1>CSGO Casinos</h1></center>
+
+        <div class="articles-container">
+
+
+            <a href="csgo websites/csgoempire.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/csgoempire logo.webp" alt="csgoempire logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">CSGO Empire</h3>
+                </div>
+            </a>
+    
+
+
+
+            
+            <a href="csgo websites/csgoroll.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/csgoroll logo.webp" alt="csgoroll logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">CSGO Roll</h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            <a href="csgo websites/datdrop.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/datdrop logo.png" alt="datdrop logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">DatDrop</h3>
+                </div>
+            </a>
+    
+
+
+            <a href="csgo websites/raingg.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/RainGG-Logo.png" alt="RainGG-Logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Rain GG</h3>
+                </div>
+            </a>
+
+
+
+            <a href="csgo websites/clashgg.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/clash gg logo.png" alt="clash gg logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Clash GG</h3>
+                </div>
+            </a>
+    
+
+            <a href="csgo websites/clashgg.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/rust clash logo.png" alt="Rust Clash logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Rust Clash</h3>
+                </div>
+            </a>
+    
+
+
+
+
+            <a href="csgo websites/csgo500.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/csgo500 logo.png" alt="csgo500  logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Csgo 500</h3>
+                </div>
+            </a>
+    
+
+          
+
+
+
+            <a href="csgo websites/csgoluck.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/csgo luck logo.png" alt="csgo luck logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">CSGO Luck</h3>
+                </div>
+            </a>
+    
+
+
+
+            <a href="csgo websites/daddyskins.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/daddy skins logo.png" alt="daddy skins logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Daddy Skins </h3>
+                </div>
+            </a>
+    
+
+
+
+
+            
+            <a href="csgo websites/csgofast.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/csgofast logo.png" alt="csgofast logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">CSGO Fast </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/csgobig.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/csgobig.png" alt="csgobig logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">CSGO Big </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/csgogem.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/CSGOGEM-logo-Photoroom.png" alt="csgogem logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">CSGO Gem </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/keydrop.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/key drop logo.png" alt="key drop logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"> Key Drop</h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/csgopolygon.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/csgo polygon logo.png" alt="csgo polygon logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"> CSGO Polygon</h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/skinfans.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/skinfans logo.png" alt="skinfans logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"> Skin Fans</h3>
+                </div>
+            </a>    
+    
+
+
+
+
+
+            
+            <a href="csgo websites/hellcase.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/hellcase logo.png" alt="hellcase logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"> Hellcase</h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/hellstore.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/hellstore logo.png" alt="hellstore logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Hellstore </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/chickengg.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/chickengg.png" alt="chickengg logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">chicken.gg </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/csgold.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/csgold-Photoroom.png" alt="csgold logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">CS Gold </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/csfail.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/csfail-Photoroom.png" alt="csfail logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">CS Fail </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/bountystars.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/bounty-stars-logo-Photoroom.png" alt="bountystars logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Bounty Stars </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/banditcamp.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/bandit camp logo.png" alt="bandit camp logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Bandit.Camp</h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/hotpizaa.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/hotpizaa gg.png" alt="hotpizaa logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">hotpizaa.gg </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/skinrave.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/skinrave.png" alt="skinrave logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Skin Rave</h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/csgocases.html" class="artcle-card" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/csgo cases logo.png" alt="csgo cases  logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">CSGO Cases  </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+            
+            <a href="csgo websites/g4skins.html" class="artcle-card" target="_blank" target="_blank">
+                <div class="card-image">
+                    <img src="/icons and images/gambling websites logos/g4skins logo.png" alt="g4skins logo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">G4Skins </h3>
+                </div>
+            </a>
+    
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <button id="scrollToTopBtn" title="Scroll to top">
+            <img src="/icons and images/arrow white.png" alt="Scroll to top">
+        </button>
+        
     
     </main>
   </div>
@@ -480,6 +781,42 @@
 </footer>
 
 
+<style>
+     body {
+      font-family: 'Retro Gaming', Arial, sans-serif;
+      margin: 0;
+      background-color: var(--rich-blackk);
+      color: var(--csgo-orange);
+      letter-spacing: 1px;
+    
+  }
+
+</style>
+
+
+
+
+
+
+<script src="/scroll to top button/scroll to top.js"></script>
+<script src="/scroll to top button/scroll to top smaller.js"></script>
+
+
+
+
+
+
+
+
 <script src="/hover-phones.js"></script>
+
+
+
+
+
+
+
+
+
 </body>
 </html>

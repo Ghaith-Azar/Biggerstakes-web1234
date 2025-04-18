@@ -11,6 +11,8 @@
     padding: 5px 8px; /* Padding for better visibility */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 12px var(--persimmon); /* Add a shadow */
+    font-family: "Pixeloid Bold";
+
 }
 
 #scrollToTopBtn img {

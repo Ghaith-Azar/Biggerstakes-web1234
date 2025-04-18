@@ -130,6 +130,7 @@
     text-align: center;
     color: rgba(224, 224, 224, 0.7);
     font-size: 0.85rem;
+   font-family: "Pixel Font";
 }
 
 #devby a {
@@ -137,6 +138,8 @@
     text-decoration: none;
     position: relative;
     padding-bottom: 2px;
+    font-family: "Agency";
+    font-size: medium;
 }
 
 #devby a::after {

@@ -12,6 +12,7 @@ body {
 .instructions-container {
     max-width: 1000px;
     margin: auto;
+    width  :75%;
 }
 
 .instructions {
@@ -77,3 +78,20 @@ body {
         font-size: 16px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

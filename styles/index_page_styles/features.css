@@ -350,3 +350,43 @@ img {
     from { width: 100%; }
     to { width: 0%; }
 }
+
+
+
+
+
+
+
+.how-to-use-button {
+   
+  
+    border: 1.75px solid #ffd700;
+    border-radius: 5px;
+   
+    cursor: pointer;
+    font-family: 'Pixel Font';
+    font-size: 19px;
+    font-weight: 600;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    width: 190px;
+    margin-top: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.how-to-use-button:hover {
+    transform: translateY(-3px);
+    background: #acacac80;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+

@@ -1,0 +1,61 @@
+:root {
+    --chocolate-cosmos: #370617;
+    --engineering-orange: #d00000;
+    --orange-web: #faa307;
+    --penn-red: #9d0208;
+    --persimmon: #e85d04;
+    --princeton-orange: #f48c06;
+    --rich-black: #03071e;
+    --rosewood: #6a040f;
+    --selective-yellow: #ffba08;
+    --sinopia: #dc2f02;
+    
+    
+    
+    
+    --csgo-primary: #4b5320; /* Military green */
+    --csgo-black: #1a1a1a;
+    --csgo-dark-gray: #2d2d2d;
+    --csgo-orange: #f7931e;
+    --csgo-yellow: #ffd700;
+    --csgo-red: #d00000;
+    --csgo-metal: #4d4d4d;
+    --csgo-hud: #333;
+
+
+
+
+
+
+}
+
+
+/* FONTS*/
+@font-face {
+    font-family: 'Agency';
+    src: url(Fonts/agencyfb_bold.ttf);
+}
+
+@font-face {
+    font-family: 'VCR';
+    src: url(Fonts/VCR_OSD_MONO_1.001.ttf);
+}
+
+@font-face {
+    font-family: 'Pixel Font';
+    src: url(Fonts/PixelDigivolve-mOm9.ttf);
+}
+
+@font-face {
+    font-family: 'Pixeloid';
+    src: url(Fonts/PixeloidSans-mLxMm.ttf);
+}
+
+@font-face {
+    font-family: 'Pixeloid Bold';
+    src: url(Fonts/PixeloidSansBold-PKnYd.ttf);
+}
+@font-face {
+    font-family: 'Retro Gaming';
+    src: url(Fonts/Retro\ Gaming.ttf);
+}

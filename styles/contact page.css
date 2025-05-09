@@ -23,6 +23,23 @@ h1 {
     margin: 3rem 0;
     text-shadow: 3px 3px var(--rosewood);
     position: relative;
+    transition: all 0.3s ease-in-out; /* Add smooth transition */
+}
+
+h1:hover {
+    transform: translateY(-5px) scale(1.05); /* Lift up and slightly enlarge */
+    text-shadow: 5px 5px var(--rosewood); /* Enhance shadow on hover */
+    cursor: pointer;
+}
+
+/* Optional: Add animation to the headset icon */
+h1:hover .fas.fa-headset {
+    animation: bounce 0.8s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 h1::after {

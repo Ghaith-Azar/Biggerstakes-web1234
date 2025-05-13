@@ -454,15 +454,21 @@ h1 {
 
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 730px) {
   .section-title {
-    font-size: 2rem;
-    padding: 0.8rem 1.8rem;
+    font-size: 1.8rem;
+    padding: 0.7rem 1.7rem;
   }
   
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
+  }
+}
+@media(max-width: 500px){
+  .section-title {
+    font-size: 1.6rem;
+    padding: 0.5rem 1.4rem;
   }
 }
 

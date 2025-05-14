@@ -294,3 +294,9 @@ footer::after {
     filter: drop-shadow(0 0 4px var(--rosewood)) ;
       
 }
+@media (max-width: 768px) {
+    .responsible-gambling-logo img {
+        height: 30px; /* Smaller size for mobile */
+        margin-left: 10px; /* Adjust spacing */
+    }
+}

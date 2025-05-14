@@ -248,3 +248,49 @@ footer::after {
   .svgIcon path {
     fill: white;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.responsible-gambling-logo img {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+    margin-left: 15px;
+    color:#02e901;
+}
+
+.responsible-gambling-logo:hover img {
+    transform: scale(1.05);
+}
+
+.responsible-gambling-logo img {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
+    margin-left: 15px;
+    filter: invert(11%) sepia(89%) saturate(1543%) hue-rotate(325deg) brightness(91%) contrast(97%);
+}
+
+.responsible-gambling-logo:hover img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 4px var(--rosewood)) ;
+      
+}

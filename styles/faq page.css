@@ -84,9 +84,30 @@ h1 {
     padding-bottom: 1.5rem !important;
     margin-bottom: 2rem !important;
 }
+h2{
+       font-family: 'Agency', sans-serif !important;
+    color: #d4af37 !important;
+    text-shadow: 2px 2px var(--csgo-primary);
+    letter-spacing: 2px;
+    font-size: 2.5rem !important;
+    position: relative;
+    padding-bottom: 1.5rem !important;
+    margin-bottom: 2rem !important;
+}
 
 h1::after {
     content: "";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--csgo-primary), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+h2::after{
+        content: "";
     display: block;
     width: 80%;
     height: 2px;

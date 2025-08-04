@@ -1,3 +1,10 @@
+/* ========================================
+   FEATURES SECTION STYLES
+   ======================================== */
+
+/* ========================================
+   MAIN CONTAINER LAYOUT
+   ======================================== */
 
 .feature-section-whole {
     background-color: var(--rich-black); 
@@ -27,15 +34,19 @@
     height: 30px;
     width: 100%;
 }
-.title-of-features{
+
+/* ========================================
+   TITLE STYLES
+   ======================================== */
+
+.title-of-features {
     color: #fff;
     font-size: xx-large;
 }
-@media screen and (max-width:417px) {
-    .title-of-features{
-        font-size: x-large;
-    }
-}
+
+/* ========================================
+   SITE CARDS
+   ======================================== */
 
 .site-card {
     background-color: black;
@@ -58,18 +69,6 @@
     display: flex;
 }
 
-.site-code-container {
-    align-items: center;
-    background-color: rgb(61, 9, 14); 
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    height: 65px;
-    justify-content: center;
-    width: 100%;
-    border: #e12a2a solid 1px;
-}
-
 .site-content {
     align-items: center;
     box-sizing: border-box;
@@ -82,24 +81,9 @@
     width: 100%;
 }
 
-.site-image {
-    height: auto;
-    max-height: 40px;
-    max-width: 150px;
-    width: auto;
-}
-
-.site-list {
-    display: grid;
-    grid-column-gap: 20px;
-    grid-template-columns: repeat(auto-fill, 286px);
-    grid-template-rows: repeat(auto-fill, 260.4px);
-    grid-row-gap: 20px;
-    height: auto;
-    justify-content: space-between;
-    margin-top: 20px;
-    width: 100%;
-}
+/* ========================================
+   SITE CARD ELEMENTS
+   ======================================== */
 
 .site-logo {
     align-items: center;
@@ -108,6 +92,13 @@
     height: 45px;
     justify-content: flex-start;
     width: 100%;
+}
+
+.site-image {
+    height: auto;
+    max-height: 40px;
+    max-width: 150px;
+    width: auto;
 }
 
 .site-name {
@@ -130,6 +121,22 @@
     width: 100%;
 }
 
+/* ========================================
+   PROMO CODE CONTAINER
+   ======================================== */
+
+.site-code-container {
+    align-items: center;
+    background-color: rgb(61, 9, 14); 
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    height: 65px;
+    justify-content: center;
+    width: 100%;
+    border: #e12a2a solid 1px;
+}
+
 .use-code {
     color: var(--selective-yellow); 
     font-size: 13px;
@@ -138,6 +145,37 @@
     text-align: center;
     width: 100%;
 }
+
+.code {
+    color: var(--princeton-orange);
+    font-size: 19px;
+    font-weight: 600;
+    height: 23px;
+    line-height: 24px;
+    overflow: visible !important;
+    text-align: center;
+    width: 100%;
+}
+
+/* ========================================
+   SITE LIST GRID
+   ======================================== */
+
+.site-list {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(auto-fill, 286px);
+    grid-template-rows: repeat(auto-fill, 260.4px);
+    grid-row-gap: 20px;
+    height: auto;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* ========================================
+   VISIT BUTTONS
+   ======================================== */
 
 .visit-button {
     align-items: center;
@@ -183,14 +221,12 @@
     text-decoration: none;
     width: 190px;
     transition: all 0.3s ease;
-
 }
 
 .visit-site-1:hover {
     color: var(--rich-black);
     text-decoration: none;
     transform: translateY(-3px);
-
 }
 
 .visit-site-2 {
@@ -199,10 +235,151 @@
     color: white; 
     font-family: 'Pixel Font';
     font-weight: 100;
-
 }
 
-/* RESPONSIVE DESIGN */
+/* ========================================
+   COPY CODE BUTTON
+   ======================================== */
+
+.copy-code-button {
+    background: var(--princeton-orange);
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Pixel Font';
+    font-size: 19px;
+    font-weight: 600;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    width: 190px;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.copy-code-button:hover {
+    transform: translateY(-3px);
+    color: var(--rich-black);
+    text-decoration: none;
+}
+
+/* ========================================
+   HOW TO USE BUTTON
+   ======================================== */
+
+.how-to-use-button {
+    border: 1.75px solid #ffd700;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Pixel Font';
+    font-size: 19px;
+    font-weight: 600;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    width: 190px;
+    margin-top: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.how-to-use-button:hover {
+    transform: translateY(-3px);
+    background: #acacac80;
+    text-decoration: none;
+    color: black;
+}
+
+/* ========================================
+   NOTIFICATION SYSTEM
+   ======================================== */
+
+.notification-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.copy-notification {
+    position: relative;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-family: 'Pixel Font';
+    transform: translateX(150%);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid var(--princeton-orange);
+}
+
+.copy-notification.show {
+    transform: translateX(0);
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--princeton-orange);
+    animation: progress 3s linear forwards;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes ytmlh1BMrtOkyQbEQpmWw {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes progress {
+    from { 
+        width: 100%; 
+    }
+    to { 
+        width: 0%; 
+    }
+}
+
+/* ========================================
+   UTILITY STYLES
+   ======================================== */
+
+img {
+    overflow: clip;
+    overflow-clip-margin: content-box;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media screen and (max-width: 450px) {
     .main-container {
         padding-left: 50px;
@@ -232,28 +409,9 @@
     }
 }
 
-img {
-    overflow: clip;
-    overflow-clip-margin: content-box;
-}
-
-.code {
-    color: var(--princeton-orange);
-    font-size: 19px;
-    font-weight: 600;
-    height: 23px;
-    line-height: 24px;
-    overflow: visible !important;
-    text-align: center;
-    width: 100%;
-}
-
-@keyframes ytmlh1BMrtOkyQbEQpmWw {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
+@media screen and (max-width: 417px) {
+    .title-of-features {
+        font-size: x-large;
     }
 }
 

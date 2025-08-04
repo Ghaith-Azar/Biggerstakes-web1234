@@ -1,53 +1,10 @@
+/* ========================================
+   TOP PICKS SECTION STYLES
+   ======================================== */
 
-
-
-
-.top-pick:hover {
-    transform: translateY(-10px) rotateX(5deg) scale(1.03);
-    box-shadow: 0 20px 40px rgba(184, 15, 10, 0.4);
-}
-
-.top-pick:hover::before {
-    opacity: 0.3;
-}
-
-.top-pick-site-logo img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 2px solid var(--engineering-orange);
-    box-shadow: 0 0 25px var(--sinopia);
-    transition: all 0.3s ease;
-}
-
-.top-pick:hover .top-pick-site-logo img {
-    transform: rotateY(360deg);
-    filter: brightness(1.2);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ========================================
+   MAIN CONTAINER
+   ======================================== */
 
 .top-picks {
     padding: 40px 0;
@@ -65,16 +22,9 @@
     border-bottom: #A4161A 4px solid;
 }
 
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+/* ========================================
+   GRID LAYOUT
+   ======================================== */
 
 .top-picks-grid {
     display: grid;
@@ -82,6 +32,10 @@
     gap: 20px;
     justify-content: center;
 }
+
+/* ========================================
+   TOP PICK CARDS
+   ======================================== */
 
 .top-pick {
     background-color: #030a0e;
@@ -102,6 +56,19 @@
     background-color: #6e6e6e; /* Dim the background */
 }
 
+.top-pick:hover {
+    transform: translateY(-10px) rotateX(5deg) scale(1.03);
+    box-shadow: 0 20px 40px rgba(184, 15, 10, 0.4);
+}
+
+.top-pick:hover::before {
+    opacity: 0.3;
+}
+
+/* ========================================
+   CARD CONTENT
+   ======================================== */
+
 .top-pick h3 {
     font-size: 24px;
     margin-bottom: 10px;
@@ -111,11 +78,25 @@
     font-size: 18px;
 }
 
-/* Image styling for circular images */
+.top-pick p i {
+    color: rgb(135, 135, 135);
+}
+
+.top-pick .code {
+    font-family: 'VCR';
+}
+
+/* ========================================
+   SITE LOGO
+   ======================================== */
+
 .top-pick-site-logo img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    border: 2px solid var(--engineering-orange);
+    box-shadow: 0 0 25px var(--sinopia);
+    transition: all 0.3s ease;
     margin-bottom: 10px;
     object-fit: cover; /* Maintain aspect ratio and fill */
     background-position: center;
@@ -123,12 +104,23 @@
     background-repeat: no-repeat;
 }
 
-/* Site code container alignment */
+.top-pick:hover .top-pick-site-logo img {
+    transform: rotateY(360deg);
+    filter: brightness(1.2);
+}
+
+/* ========================================
+   SITE CODE CONTAINER
+   ======================================== */
+
 .site-code-container {
     margin-top: auto;
 }
 
-/* Button styling */
+/* ========================================
+   VISIT SITE BUTTON
+   ======================================== */
+
 .visit-site-btn {
     background-color: var(--orange-web);
     color: #FFFFFF;
@@ -152,23 +144,33 @@
     background-color: var(--orange-web)
 }
 
+.visit-site-btn a:hover {
+    color: var(--rich-black);
+}
+
 .top-pick:hover .visit-site-btn {
     display: block;
 }
 
-.top-pick .code {
-    font-family: 'VCR';
-}
-.visit-site-btn a:hover{
-    color:var(--rich-black);
-}
-.top-pick p i{
-    color: rgb(135, 135, 135);
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
-
-/* Responsive Design */
 @media screen and (max-width: 676px) {
     .top-picks {
         padding-left: 25px;

@@ -1,8 +1,18 @@
-  /* styles/faq.css */
-/* CS:GO Theme Styles */
+/* ========================================
+   FAQ PAGE STYLES - CS:GO THEME
+   ======================================== */
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
 body {
     font-family: 'Agency', sans-serif;
 }
+
+/* ========================================
+   CONTAINER STYLES
+   ======================================== */
 
 /* Tactical FAQ Container */
 .container {
@@ -28,6 +38,61 @@ body {
     background-size: 20px 20px;
     pointer-events: none;
 }
+
+/* ========================================
+   HEADINGS
+   ======================================== */
+
+/* Tactical Header */
+h1 {
+    font-family: 'Agency', sans-serif !important;
+    color: #d4af37 !important;
+    text-shadow: 2px 2px var(--csgo-primary);
+    letter-spacing: 2px;
+    font-size: 2.5rem !important;
+    position: relative;
+    padding-bottom: 1.5rem !important;
+    margin-bottom: 2rem !important;
+}
+
+h2 {
+    font-family: 'Agency', sans-serif !important;
+    color: #d4af37 !important;
+    text-shadow: 2px 2px var(--csgo-primary);
+    letter-spacing: 2px;
+    font-size: 2.5rem !important;
+    position: relative;
+    padding-bottom: 1.5rem !important;
+    margin-bottom: 2rem !important;
+}
+
+h1::after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--csgo-primary), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--csgo-primary), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ========================================
+   FAQ ITEMS
+   ======================================== */
 
 /* CS:GO FAQ Items */
 .faq-item {
@@ -73,64 +138,45 @@ body {
     margin-left: 15px;
 }
 
-/* Tactical Header */
-h1 {
-    font-family: 'Agency', sans-serif !important;
-    color: #d4af37 !important;
-    text-shadow: 2px 2px var(--csgo-primary);
-    letter-spacing: 2px;
-    font-size: 2.5rem !important;
-    position: relative;
-    padding-bottom: 1.5rem !important;
-    margin-bottom: 2rem !important;
-}
-h2{
-       font-family: 'Agency', sans-serif !important;
-    color: #d4af37 !important;
-    text-shadow: 2px 2px var(--csgo-primary);
-    letter-spacing: 2px;
-    font-size: 2.5rem !important;
-    position: relative;
-    padding-bottom: 1.5rem !important;
-    margin-bottom: 2rem !important;
-}
-
-h1::after {
-    content: "";
-    display: block;
-    width: 80%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--csgo-primary), transparent);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-h2::after{
-        content: "";
-    display: block;
-    width: 80%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--csgo-primary), transparent);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
+/* ========================================
+   ANIMATIONS
+   ======================================== */
 
 /* CS:GO Animations */
 @keyframes weaponInspect {
-    0% { transform: rotateZ(0deg) translateY(0); }
-    25% { transform: rotateZ(2deg) translateY(-2px); }
-    50% { transform: rotateZ(-2deg) translateY(2px); }
-    100% { transform: rotateZ(0deg) translateY(0); }
+    0% { 
+        transform: rotateZ(0deg) translateY(0); 
+    }
+    25% { 
+        transform: rotateZ(2deg) translateY(-2px); 
+    }
+    50% { 
+        transform: rotateZ(-2deg) translateY(2px); 
+    }
+    100% { 
+        transform: rotateZ(0deg) translateY(0); 
+    }
 }
 
 .faq-item:hover {
     animation: weaponInspect 0.4s ease;
 }
+
+/* ========================================
+   FONTS
+   ======================================== */
+
+/* Add to fonts.css */
+@font-face {
+    font-family: 'Counter-Strike';
+    src: url('fonts/cs_regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
 /* Mobile Tactical Adjustments */
 @media (max-width: 768px) {
@@ -160,14 +206,6 @@ h2::after{
     .faq-item p {
         font-size: 1rem !important;
     }
-}
-
-/* Add to fonts.css */
-@font-face {
-    font-family: 'Counter-Strike';
-    src: url('fonts/cs_regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 

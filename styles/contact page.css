@@ -1,3 +1,11 @@
+/* ========================================
+   CONTACT PAGE STYLES
+   ======================================== */
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -15,6 +23,10 @@ body {
     padding: 1rem 0;
 }
 
+/* ========================================
+   HEADINGS
+   ======================================== */
+
 h1 {
     color: var(--selective-yellow);
     font-family: 'Agency', sans-serif;
@@ -23,23 +35,17 @@ h1 {
     margin: 3rem 0;
     text-shadow: 3px 3px var(--rosewood);
     position: relative;
-    transition: all 0.3s ease-in-out; /* Add smooth transition */
+    transition: all 0.3s ease-in-out;
 }
 
 h1:hover {
-    transform: translateY(-5px) scale(1.05); /* Lift up and slightly enlarge */
-    text-shadow: 5px 5px var(--rosewood); /* Enhance shadow on hover */
+    transform: translateY(-5px) scale(1.05);
+    text-shadow: 5px 5px var(--rosewood);
     cursor: pointer;
 }
 
-/* Optional: Add animation to the headset icon */
 h1:hover .fas.fa-headset {
     animation: bounce 0.8s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
 }
 
 h1::after {
@@ -51,6 +57,10 @@ h1::after {
     margin: 1rem auto;
 }
 
+/* ========================================
+   CONTACT CONTAINER
+   ======================================== */
+
 .contact-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -59,6 +69,10 @@ h1::after {
     margin: 0 auto;
     padding: 2rem;
 }
+
+/* ========================================
+   CONTACT LEFT SECTION
+   ======================================== */
 
 .contact-left {
     background: linear-gradient(145deg, #1A1A1A, #0A0A0A);
@@ -92,6 +106,10 @@ h1::after {
     margin-bottom: 2rem;
     text-align: center;
 }
+
+/* ========================================
+   FORM INPUTS
+   ======================================== */
 
 .input-group {
     position: relative;
@@ -145,6 +163,10 @@ textarea.contact-inputs {
     padding-top: 1rem !important;
 }
 
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
+
 button[type="submit"] {
     background: linear-gradient(135deg, var(--engineering-orange), var(--persimmon));
     color: var(--rich-black) !important;
@@ -182,6 +204,10 @@ button[type="submit"]::after {
     animation: buttonShine 3s infinite;
 }
 
+/* ========================================
+   CONTACT RIGHT SECTION
+   ======================================== */
+
 .contact-right {
     background: linear-gradient(145deg, var(--rosewood), #1A1A1A);
     border: 2px solid var(--engineering-orange);
@@ -218,16 +244,43 @@ button[type="submit"]::after {
     transform: translateX(10px);
 }
 
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes bounce {
+    0%, 100% { 
+        transform: translateY(0); 
+    }
+    50% { 
+        transform: translateY(-10px); 
+    }
+}
+
 @keyframes inputGlow {
-    0% { box-shadow: 0 0 10px rgba(216, 0, 0, 0.3); }
-    50% { box-shadow: 0 0 20px rgba(216, 0, 0, 0.5); }
-    100% { box-shadow: 0 0 10px rgba(216, 0, 0, 0.3); }
+    0% { 
+        box-shadow: 0 0 10px rgba(216, 0, 0, 0.3); 
+    }
+    50% { 
+        box-shadow: 0 0 20px rgba(216, 0, 0, 0.5); 
+    }
+    100% { 
+        box-shadow: 0 0 10px rgba(216, 0, 0, 0.3); 
+    }
 }
 
 @keyframes buttonShine {
-    0% { transform: translateX(-100%) rotate(45deg); }
-    100% { transform: translateX(100%) rotate(45deg); }
+    0% { 
+        transform: translateX(-100%) rotate(45deg); 
+    }
+    100% { 
+        transform: translateX(100%) rotate(45deg); 
+    }
 }
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
 @media (min-width: 768px) {
     .contact-container {

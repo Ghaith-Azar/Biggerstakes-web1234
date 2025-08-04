@@ -1,17 +1,17 @@
+/* ========================================
+   MAIN STYLES
+   ======================================== */
 
-html, main, header{
+/* Base HTML and Body Styles */
+html, main, header {
     font-family: 'Pixel Font'; 
 }
 
-html{
+html {
     position: relative;
     min-height: 100%;
     margin: 0;
     padding: 0;  
-}
-
-.wrapper {
-    padding-bottom: 150px; /* Height of the footer */
 }
 
 body {
@@ -24,35 +24,24 @@ body {
     min-height: 100%;
 }
 
+/* ========================================
+   LAYOUT CONTAINERS
+   ======================================== */
+
+.wrapper {
+    padding-bottom: 150px; /* Height of the footer */
+    background-color: #020516;
+}
+
 .container {
     width: 80%;
     margin: auto;
     overflow: hidden;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ========================================
+   HERO SECTION
+   ======================================== */
 
 .hero {
     color: #ffffff;
@@ -75,21 +64,25 @@ body {
 .floating-text {
     display: inline-block;
     animation: float 3s ease-in-out infinite;
-  }
-  
-  @keyframes float {
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes float {
     0% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
     50% {
-      transform: translateY(-10px);
+        transform: translateY(-10px);
     }
     100% {
-      transform: translateY(0);
+        transform: translateY(0);
     }
-  }
-  
-  @keyframes fadeInDown {
+}
+
+@keyframes fadeInDown {
     from {
         opacity: 0;
         transform: translateY(-50px);
@@ -111,16 +104,9 @@ body {
     }
 }
 
-@media screen and (max-width: 520px){
-    .hero h1{
-      font-size: 33.5px;
-    }
-  }
-
-
-
-
-
+/* ========================================
+   COIN ANIMATION
+   ======================================== */
 
 .scene {
     perspective: 1000px;
@@ -151,30 +137,16 @@ body {
 .back {
     transform: rotateY(180deg);
 }
-.front img{
+
+.front img {
     width: 195px;
     height: 195px;
 }   
-.back img{
+
+.back img {
     width: 195px;
     height: 195px;
 }
-
-@media screen and (max-width: 520px){
-  
-    .front img{
-        width: 170px;
-        height: 170px;
-    }   
-    .back img{
-        width: 170px;
-        height: 170px;
-    }
-    .coin {
-        width: 172px;
-        height: 172px; 
-    }
-  }
 
 @keyframes flip {
     0% {
@@ -187,16 +159,11 @@ body {
         transform: rotateY(360deg);
     }
 }
- 
 
+/* ========================================
+   SELL SKINS SECTION
+   ======================================== */
 
-
-
-
-
-
-
-/* SELL SKINS SECTION */
 .Sell-skins-section {
     background-color: var(--rich-black); 
     border-bottom: var(--engineering-orange) 6px solid; 
@@ -204,63 +171,16 @@ body {
     padding-bottom: 45px;
     padding-top: 15px;
 }
-.title-of-sell-skins{
+
+.title-of-sell-skins {
     color: #fff;
     font-size: xx-large;
 }
-@media screen and (max-width:466px) {
-    .title-of-sell-skins{
-        font-size: x-large;
-    }
-}
 
+/* ========================================
+   CS:GO SITES SECTION
+   ======================================== */
 
-
-
-
-
-
-
-
-/* 
-.note::before {
-    content: '⚠️';
-    position: absolute;
-    left: -30px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-    #csgo-sites h2::after {
-    content: '🎰';
-    position: absolute;
-    right: 20px;
-    filter: drop-shadow(0 0 5px #FFD700);
-}
-.paragraph-title::before {
-    content: '♦♣♠♥';
-    color: #f7931e;
-    position: absolute;
-    left: -10px;
-    top: -15px;
-    opacity: 0.5;
-}
- */
-
-
-
-
-
-
-
-
-
-.wrapper{
-    background-color: #020516;
-}
-
-
-
-/* CS:GO Gambling Theme - Clear & Readable */
 #csgo-sites {
     background: #0F0F0F;
     border: 2px solid #F7931E;
@@ -283,29 +203,9 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ========================================
+   TABLE STYLES
+   ======================================== */
 
 .site-ranks {
     width: 100%;
@@ -356,57 +256,9 @@ body {
     color: #1A1A1A;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* Add horizontal scroll on mobile */
-@media screen and (max-width: 768px) {
-    .table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-        margin: 25px -15px; /* Offset container padding */
-    }
-    
-    .site-ranks {
-        min-width: 600px; /* Minimum table width */
-    }
-}
-
-/* Optional: Style scrollbar */
-.table-container::-webkit-scrollbar {
-    height: 6px;
-}
-
-.table-container::-webkit-scrollbar-track {
-    background: #1A1A1A;
-}
-
-.table-container::-webkit-scrollbar-thumb {
-    background: #F7931E;
-    border-radius: 3px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ========================================
+   CONTENT SECTIONS
+   ======================================== */
 
 .paragraph-title {
     color: #FFD700;
@@ -478,56 +330,9 @@ body {
     color: #C0C0C0;
 }
 
-/* Mobile Optimization */
-@media screen and (max-width: 768px) {
-    #csgo-sites {
-        width: 95%;
-        padding: 20px;
-    }
-    
-    #csgo-sites h2 {
-        font-size: 1.8rem;
-    }
-    
-    .site-ranks {
-        display: block;
-        overflow-x: auto;
-    }
-    
-    .site-ranks th,
-    .site-ranks td {
-        padding: 12px;
-        font-size: 0.9rem;
-    }
-    
-    .paragraph-title {
-        font-size: 1.3rem;
-    }
-    
-    .gambling-methods-items-0 {
-        padding: 12px;
-    }
-}
-
-/* Visibility Enhancements */
-#csgo-sites * {
-    line-height: 1.6;
-}
-
-#csgo-sites p {
-    color: #C0C0C0;
-    font-size: 1.1rem;
-    margin: 15px 0;
-}
-
-#csgo-sites a {
-    transition: all 0.2s ease;
-}
-
-#csgo-sites a:hover {
-    filter: brightness(1.2);
-}
-
+/* ========================================
+   CS:GO THEME ENHANCEMENTS
+   ======================================== */
 
 #csgo-sites {
     background: #0F0F0F url('csgo_pattern.png');
@@ -625,230 +430,178 @@ body {
     display: block;
 }
 
-/* Mobile Adjustments */
-@media screen and (max-width: 768px) {
-    #csgo-sites h2::before,
-    #csgo-sites h2::after {
-        display: none;
+/* ========================================
+   CS:GO THEME VARIABLES
+   ======================================== */
+
+:root {
+    --csgo-orange: #F7931E;
+    --csgo-gold: #FFD700;
+    --dark-bg: #0F0F0F;
+    --dark-border: #333;
+}
+
+/* ========================================
+   ENHANCED CS:GO STYLES
+   ======================================== */
+
+#csgo-sites {
+    background: var(--dark-bg);
+    border: 2px solid var(--csgo-orange);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(247, 147, 30, 0.1);
+}
+
+#csgo-sites h2 {
+    color: var(--csgo-gold);
+    text-align: center;
+    font-size: 2rem;
+    margin: 0 0 2rem 0;
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--csgo-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Enhanced Table Styles */
+.site-ranks {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: #1A1A1A;
+    min-width: 600px;
+}
+
+.site-ranks th,
+.site-ranks td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--dark-border);
+}
+
+.site-ranks th {
+    background: linear-gradient(135deg, var(--csgo-orange), #CC0000);
+    color: #FFF;
+    font-weight: bold;
+}
+
+.site-ranks tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.site-ranks a {
+    color: var(--csgo-gold);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--csgo-orange);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.site-ranks a:hover {
+    background: var(--csgo-orange);
+    color: #000;
+}
+
+/* Enhanced Content Sections */
+.paragraph-title {
+    color: var(--csgo-orange);
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gambling-methods-0 {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.gambling-methods-items-0 {
+    background: #1A1A1A;
+    border: 1px solid var(--dark-border);
+    border-radius: 6px;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.gambling-methods-items-0 strong {
+    color: var(--csgo-gold);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.gambling-methods {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.gambling-methods-items {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.gambling-methods-items::before {
+    content: "►";
+    color: var(--csgo-orange);
+    position: absolute;
+    left: 0;
+}
+
+.note {
+    background: rgba(247, 147, 30, 0.1);
+    border-left: 4px solid var(--csgo-orange);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+/* Icons */
+.fas {
+    color: var(--csgo-orange);
+    margin-right: 0.5rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Mobile Responsive */
+@media screen and (max-width: 520px) {
+    .hero h1 {
+        font-size: 33.5px;
     }
     
-    .site-ranks th::before {
-        width: 15px;
-        height: 15px;
-        left: 5px;
+    .front img {
+        width: 170px;
+        height: 170px;
+    }   
+    .back img {
+        width: 170px;
+        height: 170px;
     }
-    
-    .gambling-methods-items-0::before {
-        left: -25px;
-        width: 20px;
-        height: 20px;
-    }
-    
-    .note::before {
-        left: -35px;
-        width: 25px;
+    .coin {
+        width: 172px;
+        height: 172px; 
     }
 }
 
-
-     /* Base Styles */
-     :root {
-        --csgo-orange: #F7931E;
-        --csgo-gold: #FFD700;
-        --dark-bg: #0F0F0F;
-        --dark-border: #333;
+@media screen and (max-width: 466px) {
+    .title-of-sell-skins {
+        font-size: x-large;
     }
+}
 
-    body {
-        font-family: 'Arial', sans-serif;
-        line-height: 1.6;
-        background-color: #1A1A1A;
-        color: #E0E0E0;
-    }
-
-    /* CS:GO Section Styles */
-    #csgo-sites {
-        background: var(--dark-bg);
-        border: 2px solid var(--csgo-orange);
-        border-radius: 8px;
-        width: 90%;
-        max-width: 1200px;
-        margin: 2rem auto;
-        padding: 2rem;
-        box-shadow: 0 0 30px rgba(247, 147, 30, 0.1);
-    }
-
-    #csgo-sites h2 {
-        color: var(--csgo-gold);
-        text-align: center;
-        font-size: 2rem;
-        margin: 0 0 2rem 0;
-        padding: 1rem 0;
-        border-bottom: 3px solid var(--csgo-orange);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-    }
-
-    /* Table Styles */
-    .site-ranks {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 2rem 0;
-        background: #1A1A1A;
-        min-width: 600px;
-    }
-
-    .site-ranks th,
-    .site-ranks td {
-        padding: 1rem;
-        text-align: center;
-        border: 1px solid var(--dark-border);
-    }
-
-    .site-ranks th {
-        background: linear-gradient(135deg, var(--csgo-orange), #CC0000);
-        color: #FFF;
-        font-weight: bold;
-    }
-
-    .site-ranks tr:nth-child(even) {
-        background-color: rgba(255, 255, 255, 0.05);
-    }
-
-    .site-ranks a {
-        color: var(--csgo-gold);
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-        border: 1px solid var(--csgo-orange);
-        border-radius: 4px;
-        transition: all 0.3s ease;
-    }
-
-    .site-ranks a:hover {
-        background: var(--csgo-orange);
-        color: #000;
-    }
-
-    /* Content Sections */
-    .paragraph-title {
-        color: var(--csgo-orange);
-        font-size: 1.5rem;
-        margin: 2rem 0 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .gambling-methods-0 {
-        list-style: none;
-        padding: 0;
-        margin: 1rem 0;
-    }
-
-    .gambling-methods-items-0 {
-        background: #1A1A1A;
-        border: 1px solid var(--dark-border);
-        border-radius: 6px;
-        margin: 1rem 0;
-        padding: 1rem;
-    }
-
-    .gambling-methods-items-0 strong {
-        color: var(--csgo-gold);
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-
-    .gambling-methods {
-        list-style: none;
-        padding-left: 1.5rem;
-    }
-
-    .gambling-methods-items {
-        margin: 0.5rem 0;
-        padding-left: 1.5rem;
-        position: relative;
-    }
-
-    .gambling-methods-items::before {
-        content: "►";
-        color: var(--csgo-orange);
-        position: absolute;
-        left: 0;
-    }
-
-    .note {
-        background: rgba(247, 147, 30, 0.1);
-        border-left: 4px solid var(--csgo-orange);
-        padding: 1.5rem;
-        margin: 2rem 0;
-        position: relative;
-    }
-
-
-    /* Icons */
-    .fas {
-        color: var(--csgo-orange);
-        margin-right: 0.5rem;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        #csgo-sites {
-            width: 95%;
-            padding: 1rem;
-        }
-
-        #csgo-sites h2 {
-            font-size: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .site-ranks {
-            font-size: 0.9rem;
-        }
-
-        .site-ranks th,
-        .site-ranks td {
-            padding: 0.75rem;
-        }
-
-        .paragraph-title {
-            font-size: 1.25rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .site-ranks {
-            display: block;
-            overflow-x: auto;
-        }
-
-        #csgo-sites h2 .fas {
-            display: none;
-        }
-
-        .card {
-            padding: 1rem;
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     header .container {
         flex-direction: column;
         align-items: flex-start;
@@ -881,5 +634,125 @@ body {
     .feature {
         flex: 1 1 calc(40% - 20px);
     }
+    
+    /* CS:GO Section Mobile */
+    #csgo-sites {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    #csgo-sites h2 {
+        font-size: 1.8rem;
+    }
+    
+    .site-ranks {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .site-ranks th,
+    .site-ranks td {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .paragraph-title {
+        font-size: 1.3rem;
+    }
+    
+    .gambling-methods-items-0 {
+        padding: 12px;
+    }
+    
+    /* Mobile Icon Adjustments */
+    #csgo-sites h2::before,
+    #csgo-sites h2::after {
+        display: none;
+    }
+    
+    .site-ranks th::before {
+        width: 15px;
+        height: 15px;
+        left: 5px;
+    }
+    
+    .gambling-methods-items-0::before {
+        left: -25px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .note::before {
+        left: -35px;
+        width: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-ranks {
+        display: block;
+        overflow-x: auto;
+    }
+
+    #csgo-sites h2 .fas {
+        display: none;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+}
+
+/* ========================================
+   TABLE CONTAINER SCROLL
+   ======================================== */
+
+/* Add horizontal scroll on mobile */
+@media screen and (max-width: 768px) {
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        margin: 25px -15px; /* Offset container padding */
+    }
+    
+    .site-ranks {
+        min-width: 600px; /* Minimum table width */
+    }
+}
+
+/* Optional: Style scrollbar */
+.table-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #1A1A1A;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #F7931E;
+    border-radius: 3px;
+}
+
+/* ========================================
+   VISIBILITY ENHANCEMENTS
+   ======================================== */
+
+#csgo-sites * {
+    line-height: 1.6;
+}
+
+#csgo-sites p {
+    color: #C0C0C0;
+    font-size: 1.1rem;
+    margin: 15px 0;
+}
+
+#csgo-sites a {
+    transition: all 0.2s ease;
+}
+
+#csgo-sites a:hover {
+    filter: brightness(1.2);
 }
 

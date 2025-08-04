@@ -1,10 +1,33 @@
-/* CS2 Tactical Theme */
+/* ========================================
+   ABOUT PAGE STYLES - CS2 TACTICAL THEME
+   ======================================== */
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
 
 body {
     background: var(--csgo-black) url('cs2_bg_texture.png');
     font-family: 'Agency', sans-serif;
     color: #e0e0e0;
 }
+
+/* CS2 Radar Inspired Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80vh;
+    height: 80vh;
+    background: radial-gradient(circle, rgba(247,147,30,0.05) 0%, rgba(0,0,0,0) 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* ========================================
+   CONTAINER STYLES
+   ======================================== */
 
 .container {
     background: rgba(29, 29, 29, 0.95) !important;
@@ -30,6 +53,10 @@ body {
     pointer-events: none;
 }
 
+/* ========================================
+   HEADINGS
+   ======================================== */
+
 h1 {
     font-family: 'Agency', sans-serif !important;
     color: var(--csgo-orange) !important;
@@ -43,6 +70,20 @@ h1 {
     padding-bottom: 1rem;
 }
 
+/* Health/Armor Bar Inspired Separator */
+h1::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(to right, var(--csgo-orange), var(--csgo-red));
+    margin: 15px auto;
+}
+
+/* ========================================
+   SECTION STYLES
+   ======================================== */
+
 section {
     background: var(--csgo-dark-gray) !important;
     border: 1px solid var(--csgo-metal);
@@ -53,11 +94,26 @@ section {
     box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
 }
 
+/* CS:GO Buy Menu Inspired Elements */
+section {
+    background: linear-gradient(to bottom, #2d2d2d 0%, #1a1a1a 100%) !important;
+    border: 1px solid #404040;
+}
+
 section:hover {
     transform: translateY(-3px);
     box-shadow: 0 0 15px rgba(247, 147, 30, 0.3);
     border-color: var(--csgo-orange);
 }
+
+/* Weapon Inspect Animation */
+section:hover {
+    animation: weaponInspect 0.4s ease;
+}
+
+/* ========================================
+   SECTION HEADINGS
+   ======================================== */
 
 section h2 {
     font-family: 'Agency', sans-serif !important;
@@ -68,6 +124,9 @@ section h2 {
     margin-bottom: 1.5rem;
     position: relative;
     padding-left: 35px;
+    background: linear-gradient(to right, #404040 0%, transparent 100%);
+    padding: 8px 15px;
+    margin: -2rem -2rem 2rem -2rem !important;
 }
 
 section h2::before {
@@ -79,6 +138,10 @@ section h2::before {
     top: -3px;
 }
 
+/* ========================================
+   SECTION CONTENT
+   ======================================== */
+
 section p {
     color: #b0b0b0 !important;
     font-size: 1.1rem !important;
@@ -87,6 +150,10 @@ section p {
     border-left: 2px solid var(--csgo-metal);
     margin-left: 15px;
 }
+
+/* ========================================
+   LISTS
+   ======================================== */
 
 section ul {
     padding-left: 35px;
@@ -115,54 +182,29 @@ section ul li strong {
     color: var(--csgo-yellow);
 }
 
-/* CS:GO Buy Menu Inspired Elements */
-section {
-    background: linear-gradient(to bottom, #2d2d2d 0%, #1a1a1a 100%) !important;
-    border: 1px solid #404040;
-}
+/* ========================================
+   ANIMATIONS
+   ======================================== */
 
-section h2 {
-    background: linear-gradient(to right, #404040 0%, transparent 100%);
-    padding: 8px 15px;
-    margin: -2rem -2rem 2rem -2rem !important;
-}
-
-/* Health/Armor Bar Inspired Separator */
-h1::after {
-    content: "";
-    display: block;
-    width: 200px;
-    height: 3px;
-    background: linear-gradient(to right, var(--csgo-orange), var(--csgo-red));
-    margin: 15px auto;
-}
-
-/* Weapon Inspect Animation */
 @keyframes weaponInspect {
-    0% { transform: rotateZ(0deg) scale(1); }
-    25% { transform: rotateZ(1deg) scale(1.02); }
-    75% { transform: rotateZ(-1deg) scale(1.02); }
-    100% { transform: rotateZ(0deg) scale(1); }
+    0% { 
+        transform: rotateZ(0deg) scale(1); 
+    }
+    25% { 
+        transform: rotateZ(1deg) scale(1.02); 
+    }
+    75% { 
+        transform: rotateZ(-1deg) scale(1.02); 
+    }
+    100% { 
+        transform: rotateZ(0deg) scale(1); 
+    }
 }
 
-section:hover {
-    animation: weaponInspect 0.4s ease;
-}
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
-/* CS2 Radar Inspired Background */
-body::before {
-    content: "";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 80vh;
-    height: 80vh;
-    background: radial-gradient(circle, rgba(247,147,30,0.05) 0%, rgba(0,0,0,0) 70%);
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         width: 95% !important;

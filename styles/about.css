@@ -1,5 +1,5 @@
 /* ========================================
-   ABOUT PAGE STYLES - CS2 TACTICAL THEME
+   ABOUT PAGE STYLES
    ======================================== */
 
 /* ========================================
@@ -7,22 +7,14 @@
    ======================================== */
 
 body {
-    background: var(--csgo-black) url('cs2_bg_texture.png');
-    font-family: 'Agency', sans-serif;
-    color: #e0e0e0;
+    background: linear-gradient(135deg, #03071E 0%, #0A0A0A 100%);
+    font-family: 'Pixeloid', sans-serif;
+    min-height: 100vh;
 }
 
-/* CS2 Radar Inspired Background */
-body::before {
-    content: "";
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 80vh;
-    height: 80vh;
-    background: radial-gradient(circle, rgba(247,147,30,0.05) 0%, rgba(0,0,0,0) 70%);
-    transform: translate(-50%, -50%);
-    z-index: -1;
+.navbar {
+    border-bottom: 2px solid var(--engineering-orange);
+    padding: 1rem 0;
 }
 
 /* ========================================
@@ -30,27 +22,9 @@ body::before {
    ======================================== */
 
 .container {
-    background: rgba(29, 29, 29, 0.95) !important;
-    border: 2px solid var(--csgo-orange);
-    border-radius: 2px;
-    box-shadow: 0 0 20px rgba(247, 147, 30, 0.2);
-    margin-top: 2rem;
-    position: relative;
-    padding: 2rem !important;
-}
-
-.container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(247, 147, 30, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(247, 147, 30, 0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
-    pointer-events: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 /* ========================================
@@ -58,128 +32,117 @@ body::before {
    ======================================== */
 
 h1 {
-    font-family: 'Agency', sans-serif !important;
-    color: var(--csgo-orange) !important;
+    color: var(--selective-yellow);
+    font-family: 'Agency', sans-serif;
     text-transform: uppercase;
-    font-size: 2.8rem !important;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px var(--csgo-black);
+    letter-spacing: 3px;
+    margin: 3rem 0;
+    text-shadow: 3px 3px var(--rosewood);
     position: relative;
-    margin-bottom: 2rem !important;
-    border-bottom: 3px solid var(--csgo-metal);
-    padding-bottom: 1rem;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Health/Armor Bar Inspired Separator */
+h1:hover {
+    transform: translateY(-5px) scale(1.05);
+    text-shadow: 5px 5px var(--rosewood);
+    cursor: pointer;
+}
+
 h1::after {
-    content: "";
+    content: '';
     display: block;
-    width: 200px;
+    width: 100px;
     height: 3px;
-    background: linear-gradient(to right, var(--csgo-orange), var(--csgo-red));
-    margin: 15px auto;
+    background: var(--engineering-orange);
+    margin: 1rem auto;
 }
 
 /* ========================================
-   SECTION STYLES
+   SECTIONS
    ======================================== */
 
 section {
-    background: var(--csgo-dark-gray) !important;
-    border: 1px solid var(--csgo-metal);
+    background: linear-gradient(145deg, #1A1A1A, #0A0A0A);
+    border: 2px solid var(--engineering-orange);
+    border-radius: 8px;
+    padding: 2rem;
     margin: 2rem 0;
-    padding: 2rem !important;
     position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(216, 0, 0, 0.2);
     transition: all 0.3s ease;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-}
-
-/* CS:GO Buy Menu Inspired Elements */
-section {
-    background: linear-gradient(to bottom, #2d2d2d 0%, #1a1a1a 100%) !important;
-    border: 1px solid #404040;
 }
 
 section:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(247, 147, 30, 0.3);
-    border-color: var(--csgo-orange);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(216, 0, 0, 0.3);
 }
-
-/* Weapon Inspect Animation */
-section:hover {
-    animation: weaponInspect 0.4s ease;
-}
-
-/* ========================================
-   SECTION HEADINGS
-   ======================================== */
 
 section h2 {
-    font-family: 'Agency', sans-serif !important;
-    color: var(--csgo-yellow) !important;
-    font-size: 1.6rem !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    color: var(--selective-yellow);
+    font-family: 'Agency', sans-serif;
+    font-size: 2rem;
+    text-align: center;
     margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     position: relative;
-    padding-left: 35px;
-    background: linear-gradient(to right, #404040 0%, transparent 100%);
-    padding: 8px 15px;
-    margin: -2rem -2rem 2rem -2rem !important;
 }
 
 section h2::before {
-    content: '⬥';
-    color: var(--csgo-orange);
-    font-size: 1.8em;
+    content: '';
     position: absolute;
-    left: 0;
-    top: -3px;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--engineering-orange);
 }
-
-/* ========================================
-   SECTION CONTENT
-   ======================================== */
 
 section p {
-    color: #b0b0b0 !important;
-    font-size: 1.1rem !important;
-    line-height: 1.6;
-    padding-left: 35px;
-    border-left: 2px solid var(--csgo-metal);
-    margin-left: 15px;
+    color: #b0b0b0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 1rem;
 }
 
-/* ========================================
-   LISTS
-   ======================================== */
-
 section ul {
-    padding-left: 35px;
-    border-left: 2px solid var(--csgo-metal);
-    margin-left: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
 }
 
 section ul li {
-    color: #c0c0c0 !important;
-    margin-bottom: 1rem;
-    padding-left: 25px;
+    color: #b0b0b0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    border-left: 3px solid var(--engineering-orange);
+    transition: all 0.3s ease;
     position: relative;
-    list-style: none;
-    font-family: 'Pixeloid', sans-serif;
 }
 
 section ul li::before {
-    content: '➤';
-    color: var(--csgo-orange);
-    position: absolute;
-    left: 0;
-    font-size: 1.2em;
+    content: '▶';
+    color: var(--engineering-orange);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+section ul li:hover {
+    transform: translateX(10px);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(216, 0, 0, 0.2);
 }
 
 section ul li strong {
-    color: var(--csgo-yellow);
+    color: var(--selective-yellow);
+    font-family: 'Agency', sans-serif;
 }
 
 /* ========================================
@@ -187,17 +150,14 @@ section ul li strong {
    ======================================== */
 
 @keyframes weaponInspect {
-    0% { 
-        transform: rotateZ(0deg) scale(1); 
+    0% {
+        transform: rotateY(0deg);
     }
-    25% { 
-        transform: rotateZ(1deg) scale(1.02); 
+    50% {
+        transform: rotateY(180deg);
     }
-    75% { 
-        transform: rotateZ(-1deg) scale(1.02); 
-    }
-    100% { 
-        transform: rotateZ(0deg) scale(1); 
+    100% {
+        transform: rotateY(360deg);
     }
 }
 
@@ -207,20 +167,39 @@ section ul li strong {
 
 @media (max-width: 768px) {
     .container {
-        width: 95% !important;
-        padding: 1.5rem !important;
+        padding: 0 1rem;
     }
     
     h1 {
-        font-size: 2rem !important;
+        font-size: 1.75rem;
+        margin: 2rem 0;
     }
     
     section {
-        padding: 1.5rem !important;
+        padding: 1.5rem;
         margin: 1.5rem 0;
     }
     
     section h2 {
-        font-size: 1.3rem !important;
+        font-size: 1.5rem;
+    }
+    
+    section p,
+    section ul li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    section {
+        padding: 1rem;
+    }
+    
+    section h2 {
+        font-size: 1.25rem;
     }
 }

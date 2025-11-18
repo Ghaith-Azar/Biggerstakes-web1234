@@ -130,3 +130,218 @@ p {
     opacity: 0;
   }
 }
+/* ---------- Responsive overrides for 404 page ---------- */
+
+/* make sure base layout is fluid */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+background-color: #1d3041;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* header title */
+h1 {
+  text-align: center;
+  margin: 1.5rem 0 1rem;
+  font-size: clamp(1.25rem, 2.2vw, 2rem); /* fluid */
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #f95801;
+  line-height: 1.1;
+  padding: 0 1rem;
+}
+
+/* paragraph */
+p {
+  margin: 0.75rem auto 1.5rem;
+  max-width: 900px;
+  text-align: center;
+  color: #bcecf2;
+  font-size: clamp(0.95rem, 1.6vw, 1rem);
+  line-height: 1.5;
+  padding: 0 1rem;
+}
+main{
+     background-color: #1d3041;
+}
+
+/* 404 wrapper: center and responsive width */
+.bl_page404__wrapper {
+  position: relative;
+  width: min(92%, 520px); /* fluid up to 520px */
+  margin: 1rem auto 1.5rem;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  
+}
+
+/* cloud/main img: scale */
+.bl_page404__wrapper img,
+.bl_page404__img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* big CTA button: fluid and accessible */
+.bl_page404__link {
+  display: inline-block;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 320px;
+  height: auto;
+  padding: 0.85rem 1.25rem;
+  box-shadow: 0 5px 0 #9c1007, inset 0 0 18px rgba(253, 60, 0, 0.75);
+  background-color: #f95801;
+  color: #fff;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* hover */
+.bl_page404__link:hover,
+.bl_page404__link:focus {
+  background-color: #ff7400;
+  text-decoration: none;
+  outline: none;
+}
+
+/* animated elements: use transforms (safer on small screens) */
+.bl_page404__el1,
+.bl_page404__el2,
+.bl_page404__el3 {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  will-change: transform, opacity;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* sizes and starting positions (percent-based) */
+.bl_page404__el1 {
+  width: 18%;
+  max-width: 120px;
+  height: auto;
+  aspect-ratio: 84 / 106;
+  left: 18%;
+  top: 22%;
+  background-image: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-1.png?raw=true");
+  animation: el1Move 1.1s linear infinite;
+}
+
+.bl_page404__el2 {
+  width: 36%;
+  max-width: 220px;
+  height: auto;
+  aspect-ratio: 184 / 106;
+  left: 30%;
+  top: 18%;
+  background-image: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-2.png?raw=true");
+  animation: el2Move 1.1s linear infinite;
+}
+
+.bl_page404__el3 {
+  width: 52%;
+  max-width: 340px;
+  height: auto;
+  aspect-ratio: 284 / 106;
+  left: 43%;
+  top: 22%;
+  background-image: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-3.png?raw=true");
+  animation: el3Move 1.1s linear infinite;
+}
+
+/* transform-based keyframes (avoid fixed top/left movement which breaks on small screens) */
+@keyframes el1Move {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(-120px, -140px) scale(0.8); opacity: 0; }
+}
+@keyframes el2Move {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(-80px, -160px) scale(0.85); opacity: 0; }
+}
+@keyframes el3Move {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(140px, -120px) scale(0.9); opacity: 0; }
+}
+
+/* ---------- NAVBAR / logo responsiveness ---------- */
+.navbar .logo {
+  height: clamp(30px, 4.5vw, 48px);
+  width: auto;
+  display: block;
+}
+
+/* ensure main has spacing under fixed-top navbar */
+main {
+  padding: calc(4.5rem + 1rem) 1rem 2rem; /* gives space under fixed navbar */
+  min-height: calc(100vh - 200px);
+  box-sizing: border-box;
+}
+
+/* ---------- footer responsive tweaks ---------- */
+footer .footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+}
+footer .footer-section {
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+footer .footer-bottom {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+/* small helper: reduce animation on very small devices to save CPU */
+@media (max-width: 420px) {
+  .bl_page404__el1,
+  .bl_page404__el2,
+  .bl_page404__el3 {
+    animation-duration: 1.6s;
+  }
+  .bl_page404__el1 { display: none; } /* hide smallest decorative images to reduce clutter */
+  .bl_page404__el2 { opacity: 0.85; transform-origin: center; }
+  .bl_page404__el3 { opacity: 0.85; transform-origin: center; }
+}
+
+/* tablet adjustments */
+@media (min-width: 421px) and (max-width: 1024px) {
+  .bl_page404__wrapper { width: min(88%, 680px); }
+  .bl_page404__el1 { left: 14%; top: 18%; }
+  .bl_page404__el2 { left: 28%; top: 14%; }
+  .bl_page404__el3 { left: 46%; top: 18%; }
+}
+
+/* larger desktops: give more breathing room */
+@media (min-width: 1025px) {
+  .bl_page404__wrapper { width: min(60%, 720px); min-height: 420px; }
+  h1 { font-size: 2rem; }
+}

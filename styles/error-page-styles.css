@@ -1,347 +1,117 @@
-body {
-  width: 100%;
-  margin: 0;
-  height: 100%;
-  background-color: #1d3041;
-  font-family: "Open Sans - Semibold", sans-serif;
-  color: #fff;
+/* Dark mode colors */
+.st0{ fill:#0d1117 }               /* dark background shapes */
+.st2{ fill:#1f3b5a }               /* deep-blue body */
+.st3{ fill:#274768 }               /* slightly lighter blue */
+.st4,.st6{
+  fill:#111;                      /* dark grey fill */
+  stroke:#3a4f5a;                 /* muted steel-grey stroke */
+  stroke-miterlimit:10;
 }
-h1 {
-  text-align: center;
-  margin-top: 1%;
-  margin-bottom: 25px;
-  font-size: 30px;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: #f95801;
-}
-p {
-  display: block;
-  margin: 25px auto;
-  max-width: 776px;
-  text-align: center;
-  color: #bcecf2;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-}
-.bl_page404__wrapper {
-  position: relative;
-  width: 100%;
-  margin: 10px auto 10px;
-  max-width: 440px;
-  min-height: 410px;
-
-}
-.bl_page404__img {
-  width: 100%;
-}
-.bl_page404__link {
-  display: block;
-  margin: 0 auto;
-  width: 260px;
-  height: 64px;
-  box-shadow: 0 5px 0 #9c1007, inset 0 0 18px rgba(253, 60, 0, 0.75);
-  background-color: #f95801;
-  color: #fff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 64px;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 30px;
-  text-align: center;
-}
-.bl_page404__link:hover,
-.bl_page404__link:focus {
-  background-color: #ff7400;
-}
-.bl_page404__el1 {
-  position: absolute;
-  top: 108px;
-  left: 102px;
-  opacity: 1;
-  animation: el1Move 800ms linear infinite;
-  width: 84px;
-  height: 106px;
-  background: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-1.png?raw=true")
-    50% 50% no-repeat;
-  z-index: 2;
-}
-.bl_page404__el2 {
-  position: absolute;
-  top: 92px;
-  left: 136px;
-  opacity: 1;
-  animation: el2Move 800ms linear infinite;
-  width: 184px;
-  height: 106px;
-  background: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-2.png?raw=true")
-    50% 50% no-repeat;
-  z-index: 2;
-}
-.bl_page404__el3 {
-  position: absolute;
-  top: 108px;
-  left: 180px;
-  opacity: 1;
-  animation: el3Move 800ms linear infinite;
-  width: 284px;
-  height: 106px;
-  background: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-3.png?raw=true")
-    50% 50% no-repeat;
-  z-index: 2;
-}
-@keyframes el1Move {
-  0% {
-    top: 108px;
-    left: 102px;
-    opacity: 1;
-  }
-  100% {
-    top: -10px;
-    left: 22px;
-    opacity: 0;
-  }
-}
-@keyframes el2Move {
-  0% {
-    top: 92px;
-    left: 136px;
-    opacity: 1;
-  }
-  100% {
-    top: -10px;
-    left: 108px;
-    opacity: 0;
-  }
-}
-@keyframes el3Move {
-  0% {
-    top: 108px;
-    left: 180px;
-    opacity: 1;
-  }
-  100% {
-    top: 28px;
-    left: 276px;
-    opacity: 0;
-  }
-}
-/* ---------- Responsive overrides for 404 page ---------- */
-
-/* make sure base layout is fluid */
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: "Open Sans", sans-serif;
-background-color: #1d3041;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.st6{
+  stroke:#1f3b5a;
+  stroke-width:2;
 }
 
-/* header title */
-h1 {
-  text-align: center;
-  margin: 1.5rem 0 1rem;
-  font-size: clamp(1.25rem, 2.2vw, 2rem); /* fluid */
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #f95801;
-  line-height: 1.1;
-  padding: 0 1rem;
+.st7,.st8,.st9{
+  stroke:#274768;
+  stroke-miterlimit:10;
 }
 
-/* paragraph */
-p {
-  margin: 0.75rem auto 1.5rem;
-  max-width: 900px;
-  text-align: center;
-  color: #bcecf2;
-  font-size: clamp(0.95rem, 1.6vw, 1rem);
-  line-height: 1.5;
-  padding: 0 1rem;
-}
-main{
-     background-color: #1d3041;
+.st7{
+  stroke-width:5;
+  stroke-linecap:round;
+  fill:none;
 }
 
-/* 404 wrapper: center and responsive width */
-.bl_page404__wrapper {
-  position: relative;
-  width: min(92%, 520px); /* fluid up to 520px */
-  margin: 1rem auto 1.5rem;
-  min-height: 360px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  
+/* white elements replaced with soft grey for dark mode */
+.st8,.st9{
+  fill:#e0e0e0;
 }
 
-/* cloud/main img: scale */
-.bl_page404__wrapper img,
-.bl_page404__img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  user-select: none;
-  pointer-events: none;
+.st9{
+  fill:none;
 }
 
-/* big CTA button: fluid and accessible */
-.bl_page404__link {
-  display: inline-block;
-  margin: 0 auto;
-  width: 80%;
-  max-width: 320px;
-  height: auto;
-  padding: 0.85rem 1.25rem;
-  box-shadow: 0 5px 0 #9c1007, inset 0 0 18px rgba(253, 60, 0, 0.75);
-  background-color: #f95801;
-  color: #fff;
-  font-size: clamp(1rem, 2.4vw, 1.25rem);
-  font-weight: 700;
-  line-height: 1;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 30px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.st10{
+  /* unchanged or style something here */
 }
 
-/* hover */
-.bl_page404__link:hover,
-.bl_page404__link:focus {
-  background-color: #ff7400;
-  text-decoration: none;
-  outline: none;
+
+/* Cloud animations */
+#cloud1{ animation: cloud003 15s linear infinite; }
+#cloud2{ animation: cloud002 25s linear infinite; }
+#cloud3{ animation: cloud003 20s linear infinite; }
+#cloud4{ animation: float 4s linear infinite; }
+#cloud5{ animation: float 8s linear infinite; }
+#cloud7{ animation: float 5s linear infinite; }
+
+/* Track movement */
+#tracks{ animation: slide 650ms linear infinite; }
+#bumps{ animation: land 10000ms linear infinite; }
+
+/* Car jiggle */
+@keyframes jig {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(1px); }
+  100% { transform: translateY(0px); }
+}
+#car-layers{
+  animation: jig 0.35s linear infinite;
 }
 
-/* animated elements: use transforms (safer on small screens) */
-.bl_page404__el1,
-.bl_page404__el2,
-.bl_page404__el3 {
-  position: absolute;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  will-change: transform, opacity;
-  pointer-events: none;
-  z-index: 2;
+/* Ground movement */
+@keyframes land {
+  from { transform: translateX(0); }
+  to { transform: translateX(1000px); }
 }
 
-/* sizes and starting positions (percent-based) */
-.bl_page404__el1 {
-  width: 18%;
-  max-width: 120px;
-  height: auto;
-  aspect-ratio: 84 / 106;
-  left: 18%;
-  top: 22%;
-  background-image: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-1.png?raw=true");
-  animation: el1Move 1.1s linear infinite;
+@keyframes slide {
+  from { transform: translateX(0px); }
+  to { transform: translateX(100px); }
 }
 
-.bl_page404__el2 {
-  width: 36%;
-  max-width: 220px;
-  height: auto;
-  aspect-ratio: 184 / 106;
-  left: 30%;
-  top: 18%;
-  background-image: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-2.png?raw=true");
-  animation: el2Move 1.1s linear infinite;
+/* Cloud drifting */
+@keyframes cloud001 {
+  0% { transform: translateX(-1000px) translateY(3px); }
+  100% { transform: translateX(1000px) translateY(0); }
 }
 
-.bl_page404__el3 {
-  width: 52%;
-  max-width: 340px;
-  height: auto;
-  aspect-ratio: 284 / 106;
-  left: 43%;
-  top: 22%;
-  background-image: url("https://github.com/BlackStar1991/Pictures-for-sharing-/blob/master/404/bigBoom/404-3.png?raw=true");
-  animation: el3Move 1.1s linear infinite;
+@keyframes cloud002 {
+  0% { transform: translateX(-1000px) translateY(3px); }
+  100% { transform: translateX(1000px) translateY(0); }
 }
 
-/* transform-based keyframes (avoid fixed top/left movement which breaks on small screens) */
-@keyframes el1Move {
-  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
-  100% { transform: translate(-120px, -140px) scale(0.8); opacity: 0; }
-}
-@keyframes el2Move {
-  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
-  100% { transform: translate(-80px, -160px) scale(0.85); opacity: 0; }
-}
-@keyframes el3Move {
-  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
-  100% { transform: translate(140px, -120px) scale(0.9); opacity: 0; }
+@keyframes cloud003 {
+  0% { transform: translateX(-1000px) translateY(3px); }
+  100% { transform: translateX(1000px) translateY(0); }
 }
 
-/* ---------- NAVBAR / logo responsiveness ---------- */
-.navbar .logo {
-  height: clamp(30px, 4.5vw, 48px);
-  width: auto;
-  display: block;
+/* Floating motion */
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0); }
+  50% { transform: translateY(8px) translateX(5px); }
+  100% { transform: translateY(0px) translateX(0); }
 }
 
-/* ensure main has spacing under fixed-top navbar */
-main {
-  padding: calc(4.5rem + 1rem) 1rem 2rem; /* gives space under fixed navbar */
-  min-height: calc(100vh - 200px);
-  box-sizing: border-box;
+/* Braces wiggle */
+#bracefront, #braceback{
+  animation: braces 1s linear infinite;
 }
 
-/* ---------- footer responsive tweaks ---------- */
-footer .footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-  padding: 2rem 1rem;
-}
-footer .footer-section {
-  flex: 1 1 220px;
-  min-width: 180px;
-}
-footer .footer-bottom {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem 2rem;
-  flex-wrap: wrap;
+@keyframes braces {
+  0% { transform: translateX(-2px); }
+  25% { transform: translateX(3px); }
+  50% { transform: translateX(-2px); }
+  75% { transform: translateX(3px); }
+  100% { transform: translateX(-2px); }
 }
 
-/* small helper: reduce animation on very small devices to save CPU */
-@media (max-width: 420px) {
-  .bl_page404__el1,
-  .bl_page404__el2,
-  .bl_page404__el3 {
-    animation-duration: 1.6s;
-  }
-  .bl_page404__el1 { display: none; } /* hide smallest decorative images to reduce clutter */
-  .bl_page404__el2 { opacity: 0.85; transform-origin: center; }
-  .bl_page404__el3 { opacity: 0.85; transform-origin: center; }
+/* Background */
+.main{
+  margin-top: 15%;
+  background-color: #000;           /* pure black */
 }
 
-/* tablet adjustments */
-@media (min-width: 421px) and (max-width: 1024px) {
-  .bl_page404__wrapper { width: min(88%, 680px); }
-  .bl_page404__el1 { left: 14%; top: 18%; }
-  .bl_page404__el2 { left: 28%; top: 14%; }
-  .bl_page404__el3 { left: 46%; top: 18%; }
-}
-
-/* larger desktops: give more breathing room */
-@media (min-width: 1025px) {
-  .bl_page404__wrapper { width: min(60%, 720px); min-height: 420px; }
-  h1 { font-size: 2rem; }
+body, html{
+  background-color: #000;           /* full dark theme */
 }

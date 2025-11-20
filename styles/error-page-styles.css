@@ -32,10 +32,6 @@
   fill:none;
 }
 
-.st10{
-  /* unchanged or style something here */
-}
-
 
 /* Cloud animations */
 #cloud1{ animation: cloud003 15s linear infinite; }

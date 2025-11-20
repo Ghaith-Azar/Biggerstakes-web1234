@@ -105,29 +105,29 @@
             </head>
             <body>
                 
-            
-                <center><h1><i class="fas fa-headset"></i> Contact Us</h1></center>
+                
+                <center><h1><i class="fas fa-headset"></i> Get In Touch</h1></center>
             
                 <div class="contact-container">
                     <div class="contact-left">
                         <div class="contact-left-title">
-                            <h2><i class="fa-solid fa-pen"></i> Get In Touch</h2>
+                            <h2><i class="fa-solid fa-pen"></i> Send Us a Message</h2>
                         </div>
                         <form action="https://api.web3forms.com/submit" method="POST">
                             <input type="hidden" name="access_key" value="4cdf34d1-736b-402f-8539-d63a8ddbbf5f">
                             
                             <div class="input-group">
-                                <i class="fas fa-user-secret input-icon"></i>
+                              
                                 <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
                             </div>
                             
                             <div class="input-group">
-                                <i class="fas fa-envelope input-icon"></i>
+                                
                                 <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
                             </div>
                             
                             <div class="input-group">
-                                <i class="fas fa-comment-dots input-icon"></i>
+                              
                                 <textarea name="message" placeholder="Your Message" class="contact-inputs" required rows="6"></textarea>
                             </div>
                             
@@ -136,10 +136,9 @@
                     </div>
             
                     <div class="contact-right">
-                        <h3><i class="fas fa-network-wired"></i> Contact Information</h3>
-                        <p><i class="fas fa-envelope-open-text"></i> Secure Email: biggerstakesco@gmail.com</p>
-                        <p><i class="fas fa-shield-alt"></i> 24/7 Support Monitoring</p>
-                        <p><i class="fas fa-user-clock"></i> Response Time: <24h</p>
+                        <h3><i class="fa-solid fa-address-book"></i> Contact Information</h3>
+                        <p><i class="fas fa-envelope-open-text"></i>Email: biggerstakesco@gmail.com</p>
+                        <p><i class="fa-solid fa-reply"></i>Response Time: <24h </p>
                     </div>
                 </div>
 
@@ -156,6 +155,37 @@
 
 
 
+ <script>
+        /* auto-split label text into spans with staggered delays */
+        (function autoSplitLabelSpans(selector = '.field .label', delayStepMs = 50) {
+          document.querySelectorAll(selector).forEach(label => {
+            if (label.dataset.split === 'true') return;
+            const text = label.textContent.trim();
+            label.textContent = '';
+            for (let i = 0; i < text.length; i++) {
+              const ch = text[i];
+              const span = document.createElement('span');
+              span.innerHTML = (ch === ' ' ? '&nbsp;' : ch);
+              span.style.transitionDelay = (i * delayStepMs) + 'ms';
+              label.appendChild(span);
+            }
+            label.dataset.split = 'true';
+          });
+        })();
+
+        /* keep label raised when field has content */
+        document.querySelectorAll('.field').forEach(f => {
+          const input = f.querySelector('input,textarea');
+          if (!input) return;
+          const check = () => {
+            if (input.value && input.value.trim().length > 0) f.classList.add('has-content');
+            else f.classList.remove('has-content');
+          };
+          input.addEventListener('input', check);
+          input.addEventListener('blur', check);
+          check();
+        });
+    </script>
 
 
 
@@ -223,7 +253,7 @@
         </div>
     </div>
    <div class="footer-bottom">
-        <p>© 2024 BiggerStakes | Designed by <a href="https://www.skylinewebdevelopment.com/" target="_blank">Skyline Web Solutions</a></p>
+        <p>© 2024 BiggerStakes | Designed by <a href="https://www.skylinewebdevelopment.com/" target="_blank" >Skyline Web Solutions</a></p>
         <a href="https://www.begambleaware.org/" target="_blank" class="responsible-gambling-logo">
             <img src="https://stnicholashospice.org.uk/wp-content/uploads/2023/02/BeGambleAware_Black_PNG.png" alt="BeGambleAware Responsible Gambling Logo">
         </a>

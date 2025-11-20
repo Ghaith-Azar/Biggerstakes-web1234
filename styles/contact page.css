@@ -5,6 +5,7 @@
 /* ========================================
    BASE STYLES
    ======================================== */
+   
 
 * {
     box-sizing: border-box;
@@ -39,7 +40,7 @@ h1 {
 }
 
 h1:hover {
-    transform: translateY(-5px) scale(1.05);
+    
     text-shadow: 5px 5px var(--rosewood);
     cursor: pointer;
 }

@@ -132,8 +132,10 @@ footer {
 }
 
 .footer-bottom a:hover {
-    color: var(--engineering-orange);
-    text-shadow: 0 0 8px var(--persimmon);
+     color: #19a219;
+    text-decoration: underline;
+
+
 }
 
 /* ========================================

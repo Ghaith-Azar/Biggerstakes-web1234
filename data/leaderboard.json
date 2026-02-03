@@ -1,7 +1,7 @@
 {
     "date": "15.12.2025",
     "status": "LEADERBOARD ENDED",
-    "updatedAt": "2026-02-03T17:07:26.192Z",
+    "updatedAt": "2026-02-03T17:36:21.792Z",
     "users": [
         {
             "place": 1,
@@ -16,21 +16,24 @@
             "username": "New User2",
             "wagered": 400000,
             "prize": 900,
-            "site": "Stake"
+            "site": "Stake",
+            "logo": "https://sandovallegacygroup.com/wp-content/uploads/2025/08/Screenshot-2025-08-14-at-9.19.56-AM-854x675.png"
         },
         {
             "place": 3,
             "username": "New User3",
             "wagered": 350000,
             "prize": 800,
-            "site": "Stake"
+            "site": "Stake",
+            "logo": "https://images.newrepublic.com/b53d30e509b44bfc5f7bf3d3a03cc000fcd50623.jpeg?auto=format&fit=crop&crop=faces&ar=3%3A2&ixlib=react-9.11.0&q=65&w=1400&dpr=1"
         },
         {
             "place": 4,
             "username": "New User4",
             "wagered": 300000,
             "prize": 700,
-            "site": "Stake"
+            "site": "Stake",
+            "logo": "https://images.newrepublic.com/b53d30e509b44bfc5f7bf3d3a03cc000fcd50623.jpeg?auto=format&fit=crop&crop=faces&ar=3%3A2&ixlib=react-9.11.0&q=65&w=1400&dpr=1"
         },
         {
             "place": 5,

@@ -59,7 +59,7 @@ body {
    ======================================== */
 
 h1 {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: "Agency FB" !important;
     font-weight: 800 !important;
     font-size: 3rem !important;
     text-align: center;
@@ -72,7 +72,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: "Pixel Font" !important;
     font-weight: 600 !important;
     font-size: 1.8rem !important;
     color: var(--accent-orange) !important;

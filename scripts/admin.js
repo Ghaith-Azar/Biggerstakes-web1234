@@ -1,11 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Auth Elements
+    const loginOverlay = document.getElementById('login-overlay');
+    const adminTools = document.getElementById('admin-tools');
+    const usernameInput = document.getElementById('admin-username');
+    const passwordInput = document.getElementById('admin-password');
+    const loginBtn = document.getElementById('login-btn');
+    const loginError = document.getElementById('login-error');
+
+    // Admin Panel Elements
     const usersList = document.getElementById('users-list');
     const addUserBtn = document.getElementById('add-user');
     const saveBtn = document.getElementById('save-leaderboard');
     const lbDateInput = document.getElementById('lb-date');
     const lbStatusInput = document.getElementById('lb-status');
     const archiveBtn = document.getElementById('archive-leaderboard');
+    const logoutBtn = document.getElementById('logout-btn');
     const notif = document.getElementById('notif');
+
+    // Default Credentials
+    const AUTH_USERNAME = "mi3zer";
+    const AUTH_PASSWORD = "engghaith";
+    const INACTIVITY_TIMEOUT = 2 * 60 * 1000; // 2 minutes in ms
 
     let leaderboardData = {
         date: "",
@@ -13,7 +28,75 @@ document.addEventListener('DOMContentLoaded', function () {
         users: []
     };
 
-    // Load initial data
+    let inactivityTimer;
+
+    // --- Authentication Logic ---
+    const checkAuth = () => {
+        const isAuthenticated = sessionStorage.getItem('adminAuthenticated') === 'true';
+        if (isAuthenticated) {
+            loginOverlay.style.display = 'none';
+            adminTools.style.display = 'block';
+            loadData();
+            resetInactivityTimer();
+        } else {
+            loginOverlay.style.display = 'flex';
+            adminTools.style.display = 'none';
+            clearInactivityTimer();
+        }
+    };
+
+    const handleLogin = () => {
+        const user = usernameInput.value;
+        const pass = passwordInput.value;
+
+        if (user === AUTH_USERNAME && pass === AUTH_PASSWORD) {
+            sessionStorage.setItem('adminAuthenticated', 'true');
+            loginError.style.display = 'none';
+            checkAuth();
+        } else {
+            loginError.style.display = 'block';
+            passwordInput.value = '';
+        }
+    };
+
+    const handleLogout = () => {
+        sessionStorage.removeItem('adminAuthenticated');
+        checkAuth();
+        usernameInput.value = '';
+        passwordInput.value = '';
+    };
+
+    // --- Inactivity Logic ---
+    const resetInactivityTimer = () => {
+        clearInactivityTimer();
+        inactivityTimer = setTimeout(() => {
+            alert("Session expired due to inactivity.");
+            handleLogout();
+        }, INACTIVITY_TIMEOUT);
+    };
+
+    const clearInactivityTimer = () => {
+        if (inactivityTimer) clearTimeout(inactivityTimer);
+    };
+
+    // Listen for activity
+    ['mousemove', 'keydown', 'mousedown', 'touchstart', 'scroll'].forEach(event => {
+        window.addEventListener(event, () => {
+            if (sessionStorage.getItem('adminAuthenticated') === 'true') {
+                resetInactivityTimer();
+            }
+        });
+    });
+
+    loginBtn.addEventListener('click', handleLogin);
+    logoutBtn.addEventListener('click', handleLogout);
+    [usernameInput, passwordInput].forEach(input => {
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleLogin();
+        });
+    });
+
+    // --- Admin Panel Logic ---
     const loadData = () => {
         const localData = localStorage.getItem('leaderboardData');
         if (localData) {
@@ -88,14 +171,11 @@ document.addEventListener('DOMContentLoaded', function () {
         leaderboardData.status = lbStatusInput.value;
         leaderboardData.updatedAt = new Date().toISOString();
 
-        // Save to localStorage for immediate preview
         localStorage.setItem('leaderboardData', JSON.stringify(leaderboardData));
 
-        // Show notification
         notif.style.display = 'block';
         setTimeout(() => notif.style.display = 'none', 3000);
 
-        // Optional: Trigger a download of the JSON file so the user can replace the data/leaderboard.json
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(leaderboardData, null, 4));
         const downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
@@ -108,11 +188,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     archiveBtn.addEventListener('click', () => {
-        // Fetch current history, add current data, and download new history file
         fetch('data/leaderboard-history.json')
             .then(res => res.json())
             .then(historyData => {
-                // Ensure we don't duplicate by date (optional check)
                 const exists = historyData.some(h => h.date === lbDateInput.value);
                 if (exists) {
                     if (!confirm("A leaderboard with this date already exists in history. Overwrite?")) return;
@@ -144,5 +222,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 
-    loadData();
+    // Initial check
+    checkAuth();
 });

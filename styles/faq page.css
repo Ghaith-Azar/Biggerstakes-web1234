@@ -1,211 +1,202 @@
 /* ========================================
-   FAQ PAGE STYLES - CS:GO THEME
+   MODERN FAQ REDESIGN - PREMIUM GLASSMORPHISM
    ======================================== */
 
-/* ========================================
-   BASE STYLES
-   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@400;600;800&display=swap');
+
+:root {
+    --glass-bg: rgba(13, 17, 23, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-purple: #bf40bf;
+    --accent-orange: #f48c06;
+    --text-main: #e6edf3;
+    --text-dim: #8b949e;
+    --glow-shadow: 0 0 20px rgba(191, 64, 191, 0.2);
+}
 
 body {
-    font-family: 'Agency', sans-serif;
+    background-color: #03071e !important;
+    /* Match root colors */
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
 }
 
 /* ========================================
    CONTAINER STYLES
    ======================================== */
 
-/* Tactical FAQ Container */
 .container {
-    background: linear-gradient(145deg, #1a1a1a, #121212) !important;
-    border: 3px solid var(--csgo-primary) !important;
-    box-shadow: 0 0 30px rgba(75, 83, 32, 0.4) !important;
-    border-radius: 8px;
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: var(--glow-shadow) !important;
+    border-radius: 20px;
+    padding: 3rem !important;
+    margin-top: 3rem !important;
     position: relative;
-    overflow: hidden;
-    margin-top: 2rem;
+    overflow: visible;
 }
 
 .container::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(75, 83, 32, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(75, 83, 32, 0.1) 1px, transparent 1px);
-    background-size: 20px 20px;
+    inset: -2px;
+    border-radius: 22px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--accent-purple), var(--accent-orange));
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     pointer-events: none;
+    opacity: 0.5;
 }
 
 /* ========================================
    HEADINGS
    ======================================== */
 
-/* Tactical Header */
 h1 {
-    font-family: 'Agency', sans-serif !important;
-    color: #d4af37 !important;
-    text-shadow: 2px 2px var(--csgo-primary);
-    letter-spacing: 2px;
-    font-size: 2.5rem !important;
-    position: relative;
-    padding-bottom: 1.5rem !important;
-    margin-bottom: 2rem !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 3rem !important;
+    text-align: center;
+    background: linear-gradient(to right, #fff, var(--accent-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem !important;
+    text-transform: none !important;
 }
 
 h2 {
-    font-family: 'Agency', sans-serif !important;
-    color: #d4af37 !important;
-    text-shadow: 2px 2px var(--csgo-primary);
-    letter-spacing: 2px;
-    font-size: 2.5rem !important;
-    position: relative;
-    padding-bottom: 1.5rem !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.8rem !important;
+    color: var(--accent-orange) !important;
     margin-bottom: 2rem !important;
-}
-
-h1::after {
-    content: "";
-    display: block;
-    width: 80%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--csgo-primary), transparent);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 h2::after {
-    content: "";
-    display: block;
-    width: 80%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--csgo-primary), transparent);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    display: none !important;
+    /* Remove old lines */
 }
 
 /* ========================================
    FAQ ITEMS
    ======================================== */
 
-/* CS:GO FAQ Items */
 .faq-item {
-    background: rgba(32, 35, 18, 0.9);
-    border: 1px solid var(--csgo-primary);
-    border-radius: 6px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .faq-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(218, 165, 32, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(191, 64, 191, 0.4);
+    transform: scale(1.01);
+}
+
+.faq-item.active {
+    background: rgba(191, 64, 191, 0.05);
+    border-color: var(--accent-purple);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .faq-item h2 {
-    font-family: 'Retro Gaming', sans-serif !important;
-    color: #c5c5c5 !important;
-    font-size: 1.4rem !important;
-    text-transform: uppercase;
-    padding-left: 35px;
-    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif !important;
+    color: var(--text-main) !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    padding-left: 0;
+    margin-bottom: 0 !important;
+    transition: color 0.3s ease;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .faq-item h2::before {
-    content: '✛';
-    color: var(--engineering-orange);
-    font-size: 1.4em;
+    display: none !important;
+    /* Remove old symbol */
+}
+
+/* New Toggle Symbol */
+.faq-item::after {
+    content: '﹢';
+    font-family: serif;
     position: absolute;
-    left: 15px;
-    top: 1.2rem;
+    right: 2rem;
+    top: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--accent-orange);
+    transition: transform 0.4s ease, color 0.4s ease;
+    line-height: 1;
+}
+
+.faq-item.active::after {
+    content: '﹣';
+    transform: rotate(180deg);
+    color: var(--accent-purple);
 }
 
 .faq-item p {
-    font-family: 'Pixeloid', sans-serif !important;
-    color: #8b8b8b !important;
-    font-size: 1.1rem !important;
-    line-height: 1.6;
-    padding-left: 35px;
-    border-left: 2px solid var(--csgo-primary);
-    margin-left: 15px;
+    font-family: 'Inter', sans-serif !important;
+    color: var(--text-dim) !important;
+    font-size: 1rem !important;
+    line-height: 1.7;
+    padding: 0;
+    border-left: none !important;
+    margin-left: 0 !important;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, margin-top 0.3s ease;
+    margin-top: 0;
+    opacity: 0;
 }
 
-/* ========================================
-   ANIMATIONS
-   ======================================== */
-
-/* CS:GO Animations */
-@keyframes weaponInspect {
-    0% { 
-        transform: rotateZ(0deg) translateY(0); 
-    }
-    25% { 
-        transform: rotateZ(2deg) translateY(-2px); 
-    }
-    50% { 
-        transform: rotateZ(-2deg) translateY(2px); 
-    }
-    100% { 
-        transform: rotateZ(0deg) translateY(0); 
-    }
-}
-
-.faq-item:hover {
-    animation: weaponInspect 0.4s ease;
-}
-
-/* ========================================
-   FONTS
-   ======================================== */
-
-/* Add to fonts.css */
-@font-face {
-    font-family: 'Counter-Strike';
-    src: url('fonts/cs_regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+.faq-item.active p {
+    max-height: 1000px;
+    margin-top: 1.5rem;
+    opacity: 1;
 }
 
 /* ========================================
    RESPONSIVE DESIGN
    ======================================== */
 
-/* Mobile Tactical Adjustments */
 @media (max-width: 768px) {
     .container {
-        width: 95% !important;
-        padding: 1rem !important;
+        padding: 1.5rem !important;
+        margin-top: 2rem !important;
     }
-    
-    #navbar-title-faq {
-        font-size: 1.4rem !important;
-        padding-left: 35px;
+
+    h1 {
+        font-size: 2.2rem !important;
     }
-    
-    #navbar-title-faq::before {
-        width: 25px;
-        height: 25px;
-    }
-    
+
     .faq-item {
-        padding: 1rem;
+        padding: 1.2rem;
     }
-    
+
     .faq-item h2 {
-        font-size: 1.2rem !important;
-    }
-    
-    .faq-item p {
         font-size: 1rem !important;
+        padding-right: 30px;
     }
 }
-
-

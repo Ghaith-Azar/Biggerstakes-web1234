@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard Admin - BiggerStakes</title>
+    <link rel="stylesheet" href="styles/root colors and fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: var(--rich-black);
+            color: #fff;
+            font-family: 'Agency', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .admin-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #0d1117;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+
+        h1 {
+            color: var(--orange-web);
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #888;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .user-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 1fr 1fr 1.5fr 80px;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+
+        .user-header {
+            font-weight: bold;
+            color: var(--orange-web);
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-add {
+            background: #238636;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .btn-save {
+            background: var(--orange-web);
+            color: #000;
+            width: 100%;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .btn-delete {
+            background: #da3633;
+            color: #fff;
+            padding: 5px 10px;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 5px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .success {
+            background: #238636;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <h1>Leaderboard Admin Panel</h1>
+
+        <div class="form-group">
+            <label>Leaderboard Date</label>
+            <input type="text" id="lb-date" placeholder="e.g. 15.12.2025">
+        </div>
+
+        <div class="form-group">
+            <label>Status Text</label>
+            <input type="text" id="lb-status" placeholder="e.g. LEADERBOARD ENDED">
+        </div>
+
+        <div id="users-container">
+            <div class="user-grid user-header">
+                <div>Place</div>
+                <div>Username</div>
+                <div>Wagered ($)</div>
+                <div>Prize ($)</div>
+                <div>Site</div>
+                <div>Logo URL / Path</div>
+                <div>Action</div>
+            </div>
+            <div id="users-list">
+                <!-- User rows will be added here -->
+            </div>
+        </div>
+
+        <button class="btn btn-add" id="add-user"><i class="fas fa-plus"></i> Add User</button>
+        <button class="btn" id="archive-leaderboard"
+            style="background: #6a0dad; color: #fff; width: 100%; margin-top: 20px;"><i class="fas fa-archive"></i>
+            Archive to History</button>
+
+        <button class="btn btn-save" id="save-leaderboard">Save & Update Live Page</button>
+
+        <div style="margin-top: 20px; font-size: 14px; color: #888;">
+            <p><i class="fas fa-info-circle"></i> Changes reflect immediately on your browser. To make them permanent
+                for everyone, you'll need to upload the updated <code>data/leaderboard.json</code> file.</p>
+        </div>
+    </div>
+
+    <div id="notif" class="notification success">Updated successfully!</div>
+
+    <script src="scripts/admin.js"></script>
+</body>
+
+</html>

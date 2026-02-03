@@ -1,0 +1,17 @@
+[
+    {
+        "date": "08.12.2025",
+        "status": "LEADERBOARD ENDED",
+        "updatedAt": "2025-12-08T12:00:00Z",
+        "users": [
+            {
+                "place": 1,
+                "username": "Old Winner",
+                "wagered": 999999,
+                "prize": 5000,
+                "site": "Stake",
+                "logo": ""
+            }
+        ]
+    }
+]

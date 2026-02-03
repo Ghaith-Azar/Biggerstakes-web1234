@@ -1,0 +1,50 @@
+{
+    "date": "15.12.2025",
+    "status": "LEADERBOARD ENDED",
+    "updatedAt": "2026-02-03T17:07:26.192Z",
+    "users": [
+        {
+            "place": 1,
+            "username": "New User1",
+            "wagered": 500000,
+            "prize": 1000,
+            "site": "Stake",
+            "logo": "https://sandovallegacygroup.com/wp-content/uploads/2025/08/Screenshot-2025-08-14-at-9.19.56-AM-854x675.png"
+        },
+        {
+            "place": 2,
+            "username": "New User2",
+            "wagered": 400000,
+            "prize": 900,
+            "site": "Stake"
+        },
+        {
+            "place": 3,
+            "username": "New User3",
+            "wagered": 350000,
+            "prize": 800,
+            "site": "Stake"
+        },
+        {
+            "place": 4,
+            "username": "New User4",
+            "wagered": 300000,
+            "prize": 700,
+            "site": "Stake"
+        },
+        {
+            "place": 5,
+            "username": "New User5",
+            "wagered": 200000,
+            "prize": 600,
+            "site": "Stake"
+        },
+        {
+            "place": 6,
+            "username": "New User6",
+            "wagered": 100000,
+            "prize": 500,
+            "site": "Stake"
+        }
+    ]
+}

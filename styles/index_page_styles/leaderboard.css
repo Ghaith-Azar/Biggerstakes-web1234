@@ -25,6 +25,24 @@
     letter-spacing: 2px;
 }
 
+.leaderboard-header h6 {
+    color: gray;
+}
+
+.leaderboard-header a {
+    text-decoration: none;
+}
+
+.leaderboard-header a:hover {
+    text-decoration: underline;
+    color: rgb(87, 87, 87);
+}
+
+.leaderboard-header h6:hover {
+    color: rgb(87, 87, 87);
+}
+
+
 .history-selector {
     display: flex;
     align-items: center;

@@ -133,9 +133,15 @@
 
     <div class="admin-container" id="admin-tools" style="display: none;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h1 style="margin: 0;">Leaderboard Admin Panel</h1>
-            <button class="btn btn-delete" id="logout-btn" style="padding: 8px 15px;"><i
-                    class="fas fa-sign-out-alt"></i> Logout</button>
+            <h1 style="margin: 0;" id="admin-title">Leaderboard Admin Panel</h1>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <select id="leaderboard-type-select" style="width: auto; padding: 8px 15px;">
+                    <option value="weekly">Weekly Leaderboard</option>
+                    <option value="monthly">Monthly Leaderboard</option>
+                </select>
+                <button class="btn btn-delete" id="logout-btn" style="padding: 8px 15px;"><i
+                        class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
         </div>
 
         <div class="form-group">

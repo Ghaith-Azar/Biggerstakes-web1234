@@ -17,17 +17,34 @@ document.addEventListener('DOMContentLoaded', function () {
     const archiveBtn = document.getElementById('archive-leaderboard');
     const logoutBtn = document.getElementById('logout-btn');
     const notif = document.getElementById('notif');
+    const typeSelect = document.getElementById('leaderboard-type-select');
+    const adminTitle = document.getElementById('admin-title');
 
     // Default Credentials
-    const AUTH_USERNAME = "mi3zer";
-    const AUTH_PASSWORD = "engghaith";
+    const AUTH_USERNAME = "azar";
+    const AUTH_PASSWORD = "1234";
     const INACTIVITY_TIMEOUT = 2 * 60 * 1000; // 2 minutes in ms
+
+    let currentType = typeSelect?.value || 'weekly';
 
     let leaderboardData = {
         date: "",
         countdownEnd: "",
         status: "",
         users: []
+    };
+
+    const typeConfig = {
+        weekly: {
+            dataFile: 'data/leaderboard.json',
+            historyFile: 'data/leaderboard-history.json',
+            title: 'Weekly Leaderboard Admin'
+        },
+        monthly: {
+            dataFile: 'data/monthly-leaderboard.json',
+            historyFile: 'data/monthly-leaderboard-history.json',
+            title: 'Monthly Leaderboard Admin'
+        }
     };
 
     let inactivityTimer;
@@ -100,12 +117,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- Admin Panel Logic ---
     const loadData = () => {
-        const localData = localStorage.getItem('leaderboardData');
+        const localData = localStorage.getItem(`leaderboardData_${currentType}`);
         if (localData) {
             leaderboardData = JSON.parse(localData);
             renderForm();
         } else {
-            fetch('data/leaderboard.json')
+            const config = typeConfig[currentType];
+            fetch(config.dataFile)
                 .then(res => res.json())
                 .then(data => {
                     leaderboardData = data;
@@ -114,6 +132,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(err => console.error('Error loading data', err));
         }
     };
+
+    if (typeSelect) {
+        typeSelect.addEventListener('change', (e) => {
+            currentType = e.target.value;
+            adminTitle.textContent = typeConfig[currentType].title;
+            loadData();
+        });
+    }
 
     const renderForm = () => {
         lbDateInput.value = leaderboardData.date;
@@ -175,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
         leaderboardData.status = lbStatusInput.value;
         leaderboardData.updatedAt = new Date().toISOString();
 
-        localStorage.setItem('leaderboardData', JSON.stringify(leaderboardData));
+        localStorage.setItem(`leaderboardData_${currentType}`, JSON.stringify(leaderboardData));
 
         notif.style.display = 'block';
         setTimeout(() => notif.style.display = 'none', 3000);
@@ -183,16 +209,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(leaderboardData, null, 4));
         const downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
-        downloadAnchorNode.setAttribute("download", "leaderboard.json");
+        const filename = currentType === 'weekly' ? 'leaderboard.json' : 'monthly-leaderboard.json';
+        downloadAnchorNode.setAttribute("download", filename);
         document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
 
-        alert("Changes saved to browser! A 'leaderboard.json' file has been downloaded. To make changes permanent for everyone, please replace the file in 'data/leaderboard.json' with this new one.");
+        alert(`Changes saved to browser! A '${filename}' file has been downloaded. To make changes permanent for everyone, please replace the file in 'data/${filename}' with this new one.`);
     });
 
     archiveBtn.addEventListener('click', () => {
-        fetch('data/leaderboard-history.json')
+        const config = typeConfig[currentType];
+        fetch(config.historyFile)
             .then(res => res.json())
             .then(historyData => {
                 const exists = historyData.some(h => h.date === lbDateInput.value);
@@ -213,16 +241,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(historyData, null, 4));
                 const downloadAnchorNode = document.createElement('a');
                 downloadAnchorNode.setAttribute("href", dataStr);
-                downloadAnchorNode.setAttribute("download", "leaderboard-history.json");
+                const historyFilename = currentType === 'weekly' ? 'leaderboard-history.json' : 'monthly-leaderboard-history.json';
+                downloadAnchorNode.setAttribute("download", historyFilename);
                 document.body.appendChild(downloadAnchorNode);
                 downloadAnchorNode.click();
                 downloadAnchorNode.remove();
 
-                alert("current data archived! A 'leaderboard-history.json' file has been downloaded. Please replace the file in 'data/leaderboard-history.json' with this new one.");
+                alert(`Current data archived! A '${historyFilename}' file has been downloaded. Please replace the file in 'data/${historyFilename}' with this new one.`);
             })
             .catch(err => {
                 console.error('Error archiving:', err);
-                alert("Please make sure 'data/leaderboard-history.json' exists and is accessible.");
+                alert(`Please make sure 'data/${typeConfig[currentType].historyFile}' exists and is accessible.`);
             });
     });
 

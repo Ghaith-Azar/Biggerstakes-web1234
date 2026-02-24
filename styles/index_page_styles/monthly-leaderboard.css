@@ -1,0 +1,86 @@
+/* MONTHLY LEADERBOARD UNIQUE STYLES */
+
+.leaderboard-section.monthly-version {
+    background: linear-gradient(180deg, #050505 0%, #0d1117 100%);
+    border-top: #00d2ff 4px solid;
+    /* Cyan top border instead of white */
+}
+
+.monthly-version .leaderboard-header h2 {
+    color: #00d2ff;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+.monthly-version .podium-card.rank-1 {
+    border-color: #00d2ff;
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+}
+
+.monthly-version .rank-1 .podium-rank-circle {
+    border-color: #00d2ff;
+}
+
+.monthly-version .rank-1 .rank-badge {
+    border-color: #00d2ff;
+    color: #00d2ff;
+}
+
+.monthly-version .rank-1 .podium-prize {
+    background-color: #00d2ff;
+    color: #000;
+}
+
+.monthly-version .podium-card.rank-2 {
+    border-color: #ff00ff;
+    /* Magenta for 2nd place monthly */
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+.monthly-version .rank-2 .podium-rank-circle {
+    border-color: #ff00ff;
+}
+
+.monthly-version .rank-2 .rank-badge {
+    border-color: #ff00ff;
+    color: #ff00ff;
+}
+
+.monthly-version .rank-2 .podium-prize {
+    background-color: #ff00ff;
+    color: #fff;
+}
+
+.monthly-version .podium-card.rank-3 {
+    border-color: #7000ff;
+    /* Deep purple for 3rd place monthly */
+    box-shadow: 0 0 20px rgba(112, 0, 255, 0.3);
+}
+
+.monthly-version .rank-3 .podium-rank-circle {
+    border-color: #7000ff;
+}
+
+.monthly-version .rank-3 .rank-badge {
+    border-color: #7000ff;
+    color: #7000ff;
+}
+
+.monthly-version .rank-3 .podium-prize {
+    background-color: #7000ff;
+    color: #fff;
+}
+
+.monthly-version .countdown-value {
+    color: #00d2ff;
+    /* Cyan countdown values */
+}
+
+/* Specific list item changes for monthly */
+.monthly-version .list-item:hover {
+    background: rgba(0, 210, 255, 0.05);
+}
+
+.monthly-version .item-prize {
+    color: #00d2ff;
+    border: 1px solid rgba(0, 210, 255, 0.1);
+}

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles/fonts.css">
     <link rel="stylesheet" href="styles/root colors and fonts.css">
     <link rel="stylesheet" href="styles/index_page_styles/leaderboard.css">
+    <link rel="stylesheet" href="styles/index_page_styles/monthly-leaderboard.css">
 
     <link rel="stylesheet" href="reveal animations/reveal animations.css">
     <link rel="stylesheet" href="scroll to top button/scroll to top.css">
@@ -337,12 +338,12 @@
                 </div>
             </section>
 
-            <!-- LEADERBOARD SECTION -->
-            <section id="leaderboard" class="leaderboard-section">
+            <!-- WEEKLY LEADERBOARD SECTION -->
+            <section id="leaderboard" class="leaderboard-section weekly-version">
                 <div class="leaderboard-container">
                     <div class="leaderboard-header">
                         <h2>Weekly Leaderboard</h2>
-                        <a href="faq.html#leaderboard_faq">
+                        <a href="faq.html#weekly_leaderboard_faq">
                             <h6>What is Weekly Leaderboard?</h6>
                         </a>
                         <div class="history-selector">
@@ -354,14 +355,14 @@
                         </div>
                     </div>
 
-                    <div class="podium">
+                    <div class="podium" id="weekly-podium">
                         <!-- Podium cards will be rendered here by JS -->
                     </div>
 
                     <div class="leaderboard-status">
-                        <span class="status-date"><!-- Date will be rendered here --></span>
+                        <span class="status-date" id="weekly-status-date"><!-- Date will be rendered here --></span>
                         <div id="leaderboard-countdown" class="leaderboard-countdown"></div>
-                        <div class="status-label"><!-- Status will be rendered here --></div>
+                        <div class="status-label" id="weekly-status-label"><!-- Status will be rendered here --></div>
                     </div>
 
                     <div class="leaderboard-list">
@@ -372,6 +373,47 @@
                             <div style="text-align: right;">Prize</div>
                         </div>
                         <div class="leaderboard-list-items" id="leaderboard-data">
+                            <!-- List items will be rendered here by JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MONTHLY LEADERBOARD SECTION -->
+            <section id="monthly-leaderboard" class="leaderboard-section monthly-version">
+                <div class="leaderboard-container">
+                    <div class="leaderboard-header">
+                        <h2>Monthly Leaderboard</h2>
+                        <a href="faq.html#monthly_leaderboard_faq">
+                            <h6>What is Monthly Leaderboard?</h6>
+                        </a>
+                        <div class="history-selector">
+                            <i class="fas fa-history"></i>
+                            <select id="monthly-leaderboard-history-select">
+                                <option value="current">Current Leaderboard</option>
+                                <!-- Historical options will be loaded here -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="podium" id="monthly-podium">
+                        <!-- Podium cards will be rendered here by JS -->
+                    </div>
+
+                    <div class="leaderboard-status">
+                        <span class="status-date" id="monthly-status-date"><!-- Date will be rendered here --></span>
+                        <div id="monthly-leaderboard-countdown" class="leaderboard-countdown"></div>
+                        <div class="status-label" id="monthly-status-label"><!-- Status will be rendered here --></div>
+                    </div>
+
+                    <div class="leaderboard-list">
+                        <div class="list-header">
+                            <div>Place</div>
+                            <div>User</div>
+                            <div>Wagered</div>
+                            <div style="text-align: right;">Prize</div>
+                        </div>
+                        <div class="leaderboard-list-items" id="monthly-leaderboard-data">
                             <!-- List items will be rendered here by JS -->
                         </div>
                     </div>

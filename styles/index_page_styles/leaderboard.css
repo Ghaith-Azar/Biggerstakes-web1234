@@ -257,6 +257,58 @@
     color: #aaa;
 }
 
+/* Countdown Styles */
+.leaderboard-countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.countdown-unit {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 70px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-value {
+    display: block;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--orange-web);
+    font-family: 'VCR', monospace;
+    line-height: 1;
+}
+
+.countdown-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #888;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .leaderboard-countdown {
+        gap: 8px;
+    }
+
+    .countdown-unit {
+        min-width: 55px;
+        padding: 5px;
+    }
+
+    .countdown-value {
+        font-size: 24px;
+    }
+
+    .countdown-label {
+        font-size: 10px;
+    }
+}
+
 /* List Styles */
 .leaderboard-list {
     margin-top: 50px;

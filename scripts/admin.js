@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const addUserBtn = document.getElementById('add-user');
     const saveBtn = document.getElementById('save-leaderboard');
     const lbDateInput = document.getElementById('lb-date');
+    const lbCountdownEndInput = document.getElementById('lb-countdown-end');
     const lbStatusInput = document.getElementById('lb-status');
     const archiveBtn = document.getElementById('archive-leaderboard');
     const logoutBtn = document.getElementById('logout-btn');
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let leaderboardData = {
         date: "",
+        countdownEnd: "",
         status: "",
         users: []
     };
@@ -115,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const renderForm = () => {
         lbDateInput.value = leaderboardData.date;
+        lbCountdownEndInput.value = leaderboardData.countdownEnd || "";
         lbStatusInput.value = leaderboardData.status;
         usersList.innerHTML = '';
 
@@ -168,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     saveBtn.addEventListener('click', () => {
         leaderboardData.date = lbDateInput.value;
+        leaderboardData.countdownEnd = lbCountdownEndInput.value;
         leaderboardData.status = lbStatusInput.value;
         leaderboardData.updatedAt = new Date().toISOString();
 

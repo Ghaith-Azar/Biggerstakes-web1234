@@ -360,6 +360,7 @@
 
                     <div class="leaderboard-status">
                         <span class="status-date"><!-- Date will be rendered here --></span>
+                        <div id="leaderboard-countdown" class="leaderboard-countdown"></div>
                         <div class="status-label"><!-- Status will be rendered here --></div>
                     </div>
 
@@ -2303,9 +2304,19 @@
             </div> -->
 
                         </div>
+
+                        <!-- Show More / Show Less Button -->
+                        <button class="show-more-btn" id="showMoreBtn" onclick="toggleSiteCards()">
+                            <span id="showMoreText">Show More</span>
+                            <i class="fas fa-chevron-down" id="showMoreIcon"></i>
+                        </button>
+
                     </div>
                 </section>
             </center>
+
+
+
 
 
 
@@ -2758,6 +2769,9 @@
 
     <script src="scroll to top button/scroll to top.js"></script>
     <script src="scroll to top button/scroll to top smaller.js"></script>
+
+
+    <script src="scripts/show_more_btn_features.js"></script>
 
 
 

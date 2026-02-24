@@ -7,8 +7,8 @@
    ======================================== */
 
 .feature-section-whole {
-    background-color: var(--rich-black); 
-    border-top: var(--engineering-orange) 4px solid; 
+    background-color: var(--rich-black);
+    border-top: var(--engineering-orange) 4px solid;
     padding-top: 20px;
 }
 
@@ -28,7 +28,7 @@
 
 .secoundary-container {
     box-sizing: border-box;
-    color: var(--selective-yellow); 
+    color: var(--selective-yellow);
     font-size: 17px;
     font-weight: 500;
     height: 30px;
@@ -61,7 +61,7 @@
 }
 
 .site-card:hover {
-    background-color: rgba(106, 4, 14, 0.463); 
+    background-color: rgba(106, 4, 14, 0.463);
     transform: scale(1.05);
 }
 
@@ -113,7 +113,7 @@
 }
 
 .site-offer {
-    color: white; 
+    color: white;
     font-size: 17px;
     height: 23px;
     line-height: 18px;
@@ -127,7 +127,7 @@
 
 .site-code-container {
     align-items: center;
-    background-color: rgb(61, 9, 14); 
+    background-color: rgb(61, 9, 14);
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -138,7 +138,7 @@
 }
 
 .use-code {
-    color: var(--selective-yellow); 
+    color: var(--selective-yellow);
     font-size: 13px;
     height: 17px;
     line-height: 15px;
@@ -206,7 +206,7 @@
 }
 
 .visit-site-1 {
-    background: var(--persimmon); 
+    background: var(--persimmon);
     border-radius: 6px;
     color: var(--rich-black);
     cursor: pointer;
@@ -230,9 +230,9 @@
 }
 
 .visit-site-2 {
-    background: var(--orange-web); 
+    background: var(--orange-web);
     border-radius: 6px;
-    color: white; 
+    color: white;
     font-family: 'Pixel Font';
     font-weight: 100;
 }
@@ -353,17 +353,19 @@
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
 
 @keyframes progress {
-    from { 
-        width: 100%; 
+    from {
+        width: 100%;
     }
-    to { 
-        width: 0%; 
+
+    to {
+        width: 0%;
     }
 }
 
@@ -385,6 +387,7 @@ img {
         padding-left: 50px;
         padding-right: 50px;
     }
+
     .site-list {
         grid-template-columns: repeat(auto-fill, 100%);
     }
@@ -401,9 +404,11 @@ img {
         padding-left: 50px;
         padding-right: 50px;
     }
+
     .site-card {
         width: 100%;
     }
+
     .site-list {
         grid-template-columns: repeat(auto-fill, 100%);
     }
@@ -446,10 +451,10 @@ img {
 
 .copy-code-button:hover {
     transform: translateY(-3px);
-        color: var(--rich-black);
-        text-decoration: none;
-    
-    
+    color: var(--rich-black);
+    text-decoration: none;
+
+
 }
 
 
@@ -505,8 +510,13 @@ img {
 }
 
 @keyframes progress {
-    from { width: 100%; }
-    to { width: 0%; }
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
 }
 
 
@@ -516,11 +526,11 @@ img {
 
 
 .how-to-use-button {
-   
-  
+
+
     border: 1.75px solid #ffd700;
     border-radius: 5px;
-   
+
     cursor: pointer;
     font-family: 'Pixel Font';
     font-size: 19px;
@@ -548,3 +558,58 @@ img {
 
 
 
+
+
+
+
+
+
+
+
+
+/* Show More Button */
+.show-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px auto 10px;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, #6a040e, #e12a2a);
+    color: white;
+    border: 1px solid rgba(225, 42, 42, 0.4);
+    border-radius: 10px;
+    font-family: 'VCR', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.show-more-btn:hover {
+    background: linear-gradient(135deg, #e12a2a, #6a040e);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(225, 42, 42, 0.35);
+}
+
+.show-more-btn:active {
+    transform: translateY(0);
+}
+
+.show-more-btn #showMoreIcon {
+    transition: transform 0.3s ease;
+}
+
+.show-more-btn.expanded #showMoreIcon {
+    transform: rotate(180deg);
+}
+
+/* Hidden cards */
+.site-list .site-card.hidden-card {
+    display: none;
+}
+
+.site-list .site-card.hidden-card.show-card {
+    display: block;
+}

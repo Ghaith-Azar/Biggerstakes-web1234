@@ -1,0 +1,32 @@
+{
+    "date": "March 2026",
+    "countdownEnd": "2026-03-31T23:59",
+    "status": "MONTHLY LIVE",
+    "updatedAt": "2026-02-25T00:00:00.000Z",
+    "users": [
+        {
+            "place": 1,
+            "username": "Monthly King",
+            "wagered": 1000000,
+            "prize": 5000,
+            "site": "Stake",
+            "logo": ""
+        },
+        {
+            "place": 2,
+            "username": "Grinder",
+            "wagered": 800000,
+            "prize": 2500,
+            "site": "Stake",
+            "logo": ""
+        },
+        {
+            "place": 3,
+            "username": "HighRoller",
+            "wagered": 500000,
+            "prize": 1000,
+            "site": "Duel",
+            "logo": ""
+        }
+    ]
+}

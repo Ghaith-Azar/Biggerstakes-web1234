@@ -29,6 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
         statusDate.textContent = data.date;
         statusLabel.textContent = data.status;
 
+        // Start Countdown
+        if (data.countdownEnd && data.status !== "LEADERBOARD ENDED") {
+            startCountdown(data.countdownEnd);
+        } else {
+            const countdownEl = document.getElementById('leaderboard-countdown');
+            if (countdownEl) countdownEl.innerHTML = '';
+        }
+
         const users = data.users;
 
         // Render Top 3 (Podium)
@@ -80,6 +88,52 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
             listContainer.appendChild(item);
         });
+    };
+
+    let countdownInterval;
+    const startCountdown = (endTime) => {
+        const countdownEl = document.getElementById('leaderboard-countdown');
+        if (!countdownEl) return;
+
+        if (countdownInterval) clearInterval(countdownInterval);
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = new Date(endTime).getTime() - now;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownEl.innerHTML = '<div class="status-label">LEADERBOARD ENDED</div>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownEl.innerHTML = `
+                <div class="countdown-unit">
+                    <span class="countdown-value">${days}</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value">${hours}</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value">${minutes}</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value">${seconds}</span>
+                    <span class="countdown-label">Sec</span>
+                </div>
+            `;
+        };
+
+        updateCountdown();
+        countdownInterval = setInterval(updateCountdown, 1000);
     };
 
     let currentData = null;

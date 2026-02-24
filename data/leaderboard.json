@@ -1,7 +1,7 @@
 {
     "date": "15.12.2025",
-    "status": "LEADERBOARD ENDED",
-    "updatedAt": "2026-02-03T17:36:21.792Z",
+    "status": "LEADERBOARD LIVE",
+    "updatedAt": "2026-02-24T23:06:19.280Z",
     "users": [
         {
             "place": 1,
@@ -49,5 +49,6 @@
             "prize": 500,
             "site": "Stake"
         }
-    ]
+    ],
+    "countdownEnd": "2026-03-03T12:50"
 }

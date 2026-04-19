@@ -1,0 +1,229 @@
+:root {
+    --case-card-width: 150px;
+    --case-card-height: 150px;
+    --case-viewport-width: 100%;
+}
+
+.daily-case-section {
+    padding: 80px 0;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+    border-bottom: 1px solid #333;
+}
+
+.premium-title {
+    font-size: 3rem;
+    color: var(--orange-web);
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(255, 153, 0, 0.4);
+}
+
+.subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+}
+
+.highlight {
+    color: #00ff88;
+    font-weight: bold;
+}
+
+/* Auth Section */
+.auth-required {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #333;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.auth-btn {
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.auth-btn.steam {
+    background: #171a21;
+    color: #fff;
+    border: 1px solid #66c0f4;
+}
+
+.auth-btn.google {
+    background: #fff;
+    color: #444;
+}
+
+.auth-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Case Opening */
+.case-viewport {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 180px;
+    margin: 0 auto;
+    background: #111;
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.selector-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--orange-web);
+    z-index: 10;
+    box-shadow: 0 0 15px var(--orange-web);
+    transform: translateX(-50%);
+}
+
+.prize-track {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 15px;
+    transition: transform 8s cubic-bezier(0.1, 0, 0.1, 1);
+    will-change: transform;
+}
+
+.prize-card {
+    min-width: var(--case-card-width);
+    height: var(--case-card-height);
+    background: #1a1a1a;
+    border: 1px solid #333;
+    margin: 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Rarity colors */
+.prize-card.rare { border-bottom: 5px solid #4b69ff; }
+.prize-card.mythical { border-bottom: 5px solid #8847ff; }
+.prize-card.legendary { border-bottom: 5px solid #d32ce6; }
+.prize-card.ancient { border-bottom: 5px solid #eb4b4b; }
+
+.prize-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.prize-name {
+    font-size: 0.9rem;
+    color: #eee;
+    text-align: center;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.spin-button {
+    background: var(--orange-web);
+    color: #000;
+    border: none;
+    padding: 15px 60px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+    transition: all 0.2s;
+}
+
+.spin-button:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 153, 0, 0.5);
+}
+
+.spin-button:disabled {
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.timer-display {
+    margin-top: 20px;
+    color: #888;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+}
+
+/* Win Overlay */
+.win-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.win-content {
+    background: #111;
+    border: 2px solid var(--orange-web);
+    padding: 60px;
+    border-radius: 20px;
+    text-align: center;
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.won-amount {
+    font-size: 4rem;
+    color: #00ff88;
+    font-weight: bold;
+    margin: 20px 0;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+@keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.logout-link:hover {
+    color: var(--orange-web) !important;
+    text-decoration: underline !important;
+}
+
+@media (max-width: 600px) {
+    .premium-title { font-size: 2rem; }
+    .prize-viewport { height: 150px; }
+    .auth-buttons { flex-direction: column; }
+    .won-amount { font-size: 2.5rem; }
+}

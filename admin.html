@@ -132,17 +132,23 @@
     </div>
 
     <div class="admin-container" id="admin-tools" style="display: none;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h1 style="margin: 0;" id="admin-title">Leaderboard Admin Panel</h1>
-            <div style="display: flex; gap: 10px; align-items: center;">
-                <select id="leaderboard-type-select" style="width: auto; padding: 8px 15px;">
-                    <option value="weekly">Weekly Leaderboard</option>
-                    <option value="monthly">Monthly Leaderboard</option>
-                </select>
-                <button class="btn btn-delete" id="logout-btn" style="padding: 8px 15px;"><i
-                        class="fas fa-sign-out-alt"></i> Logout</button>
-            </div>
+        <div class="admin-tabs" style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 15px;">
+            <button class="btn tab-btn active" data-tab="leaderboard" style="background: transparent; border: 1px solid #333; color: #888;">Leaderboard</button>
+            <button class="btn tab-btn" data-tab="daily-case" style="background: transparent; border: 1px solid #333; color: #888;">Daily Case</button>
+            <button class="btn tab-btn" data-tab="rewards-history" style="background: transparent; border: 1px solid #333; color: #888;">Rewards History</button>
         </div>
+
+        <!-- Leaderboard Section -->
+        <div id="leaderboard-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1 style="margin: 0;" id="admin-title">Leaderboard Admin Panel</h1>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <select id="leaderboard-type-select" style="width: auto; padding: 8px 15px;">
+                        <option value="weekly">Weekly Leaderboard</option>
+                        <option value="monthly">Monthly Leaderboard</option>
+                    </select>
+                </div>
+            </div>
 
         <div class="form-group">
             <label>Leaderboard Date</label>
@@ -179,13 +185,78 @@
             style="background: #6a0dad; color: #fff; width: 100%; margin-top: 20px;"><i class="fas fa-archive"></i>
             Archive to History</button>
 
-        <button class="btn btn-save" id="save-leaderboard">Save & Update Live Page</button>
-
-        <div style="margin-top: 20px; font-size: 14px; color: #888;">
-            <p><i class="fas fa-info-circle"></i> Changes reflect immediately on your browser. To make them permanent
-                for everyone, you'll need to upload the updated <code>data/leaderboard.json</code> file.</p>
+            <button class="btn btn-save" id="save-leaderboard">Save & Update Live Page</button>
         </div>
-    </div>
+
+        <!-- Daily Case Section -->
+        <div id="daily-case-section" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h1 style="margin: 0; color: var(--orange-web);">Daily Case Management</h1>
+                <div class="form-group" style="margin: 0; display: flex; align-items: center; gap: 10px;">
+                    <label style="margin: 0;">Cooldown (Hours):</label>
+                    <input type="number" id="case-cooldown" value="5" style="width: 80px;">
+                    <button class="btn btn-save" id="save-settings" style="width: auto; margin-top: 0; padding: 10px 15px;">Save</button>
+                </div>
+            </div>
+
+            <div id="prizes-container">
+                <div class="user-grid user-header" style="grid-template-columns: 1fr 100px 100px 2fr 100px;">
+                    <div>Prize Name</div>
+                    <div>Value (USDT)</div>
+                    <div>Weight (Odds)</div>
+                    <div>Image URL</div>
+                    <div>Action</div>
+                </div>
+                <div id="prizes-list">
+                    <!-- Prize rows will be added here -->
+                </div>
+            </div>
+
+            <div style="background: #1a1a1a; padding: 20px; border-radius: 10px; border: 1px solid #333; margin-top: 20px;">
+                <h3 style="color: var(--orange-web); margin-top: 0;">Add New Prize</h3>
+                <form id="add-prize-form" style="display: grid; grid-template-columns: 2fr 1fr 1fr 2fr 100px; gap: 10px; align-items: end;">
+                    <div class="form-group" style="margin: 0;">
+                        <label>Name</label>
+                        <input type="text" id="new-prize-name" placeholder="e.g. 50 USDT">
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label>Value</label>
+                        <input type="number" step="0.01" id="new-prize-value" value="0">
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label>Weight</label>
+                        <input type="number" id="new-prize-weight" value="10">
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label>Image</label>
+                        <input type="file" id="new-prize-image" accept="image/*" style="padding: 7px;">
+                    </div>
+                    <button type="button" class="btn btn-add" id="submit-prize" style="margin: 0; height: 42px;">Add</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Rewards History Section -->
+        <div id="rewards-history-section" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h1 style="margin: 0; color: var(--orange-web);">Rewards History</h1>
+                <div style="font-size: 14px; color: #888;">Click column headers to sort</div>
+            </div>
+
+            <div id="claims-container">
+                <div class="user-grid user-header" style="grid-template-columns: 2fr 1fr 1fr 2fr;">
+                    <div class="sortable" data-sort="username" style="cursor: pointer;">Winner <i class="fas fa-sort"></i></div>
+                    <div class="sortable" data-sort="prize_name" style="cursor: pointer;">Prize <i class="fas fa-sort"></i></div>
+                    <div class="sortable" data-sort="amount" style="cursor: pointer;">Amount <i class="fas fa-sort"></i></div>
+                    <div class="sortable" data-sort="claimed_at" style="cursor: pointer;">Date <i class="fas fa-sort"></i></div>
+                </div>
+                <div id="claims-list">
+                    <!-- Claims will be added here -->
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-delete" id="logout-btn" style="width: 100%; margin-top: 40px; background: #333;"><i class="fas fa-sign-out-alt"></i> Logout</button>
 
     <div id="notif" class="notification success">Updated successfully!</div>
 

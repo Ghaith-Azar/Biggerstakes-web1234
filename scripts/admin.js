@@ -7,7 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const loginBtn = document.getElementById('login-btn');
     const loginError = document.getElementById('login-error');
 
-    // Admin Panel Elements
+    // Navigation
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const sections = {
+        leaderboard: document.getElementById('leaderboard-section'),
+        'daily-case': document.getElementById('daily-case-section'),
+        'rewards-history': document.getElementById('rewards-history-section')
+    };
+
+    // Leaderboard Elements
     const usersList = document.getElementById('users-list');
     const addUserBtn = document.getElementById('add-user');
     const saveBtn = document.getElementById('save-leaderboard');
@@ -20,34 +28,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const typeSelect = document.getElementById('leaderboard-type-select');
     const adminTitle = document.getElementById('admin-title');
 
-    // Default Credentials
-    const AUTH_USERNAME = "azar";
-    const AUTH_PASSWORD = "1234";
-    const INACTIVITY_TIMEOUT = 2 * 60 * 1000; // 2 minutes in ms
+    // Daily Case Elements
+    const prizesList = document.getElementById('prizes-list');
+    const addPrizeBtn = document.getElementById('submit-prize');
+    const cooldownInput = document.getElementById('case-cooldown');
+    const saveSettingsBtn = document.getElementById('save-settings');
+
+    // Rewards History Elements
+    const claimsList = document.getElementById('claims-list');
+    const sortableHeaders = document.querySelectorAll('.sortable');
 
     let currentType = typeSelect?.value || 'weekly';
-
-    let leaderboardData = {
-        date: "",
-        countdownEnd: "",
-        status: "",
-        users: []
-    };
+    let leaderboardData = { date: "", countdownEnd: "", status: "", users: [] };
+    let claimsData = [];
+    let currentSort = { key: 'claimed_at', order: 'desc' };
 
     const typeConfig = {
-        weekly: {
-            dataFile: 'data/leaderboard.json',
-            historyFile: 'data/leaderboard-history.json',
-            title: 'Weekly Leaderboard Admin'
-        },
-        monthly: {
-            dataFile: 'data/monthly-leaderboard.json',
-            historyFile: 'data/monthly-leaderboard-history.json',
-            title: 'Monthly Leaderboard Admin'
-        }
+        weekly: { dataFile: 'data/leaderboard.json', title: 'Weekly Leaderboard Admin' },
+        monthly: { dataFile: 'data/monthly-leaderboard.json', title: 'Monthly Leaderboard Admin' }
     };
-
-    let inactivityTimer;
 
     // --- Authentication Logic ---
     const checkAuth = () => {
@@ -55,93 +54,75 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isAuthenticated) {
             loginOverlay.style.display = 'none';
             adminTools.style.display = 'block';
-            loadData();
-            resetInactivityTimer();
+            loadLeaderboardData();
+            loadPrizes();
+            loadClaims();
         } else {
             loginOverlay.style.display = 'flex';
             adminTools.style.display = 'none';
-            clearInactivityTimer();
         }
     };
 
-    const handleLogin = () => {
-        const user = usernameInput.value;
-        const pass = passwordInput.value;
+    const handleLogin = async () => {
+        const username = usernameInput.value;
+        const password = passwordInput.value;
 
-        if (user === AUTH_USERNAME && pass === AUTH_PASSWORD) {
-            sessionStorage.setItem('adminAuthenticated', 'true');
-            loginError.style.display = 'none';
-            checkAuth();
-        } else {
-            loginError.style.display = 'block';
-            passwordInput.value = '';
+        try {
+            const response = await fetch('/api/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+
+            if (response.ok) {
+                sessionStorage.setItem('adminAuthenticated', 'true');
+                loginError.style.display = 'none';
+                checkAuth();
+            } else {
+                loginError.style.display = 'block';
+                passwordInput.value = '';
+            }
+        } catch (err) {
+            console.error('Login error:', err);
         }
     };
 
     const handleLogout = () => {
         sessionStorage.removeItem('adminAuthenticated');
+        fetch('/logout');
         checkAuth();
-        usernameInput.value = '';
-        passwordInput.value = '';
     };
-
-    // --- Inactivity Logic ---
-    const resetInactivityTimer = () => {
-        clearInactivityTimer();
-        inactivityTimer = setTimeout(() => {
-            alert("Session expired due to inactivity.");
-            handleLogout();
-        }, INACTIVITY_TIMEOUT);
-    };
-
-    const clearInactivityTimer = () => {
-        if (inactivityTimer) clearTimeout(inactivityTimer);
-    };
-
-    // Listen for activity
-    ['mousemove', 'keydown', 'mousedown', 'touchstart', 'scroll'].forEach(event => {
-        window.addEventListener(event, () => {
-            if (sessionStorage.getItem('adminAuthenticated') === 'true') {
-                resetInactivityTimer();
-            }
-        });
-    });
 
     loginBtn.addEventListener('click', handleLogin);
     logoutBtn.addEventListener('click', handleLogout);
-    [usernameInput, passwordInput].forEach(input => {
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleLogin();
+
+    // --- Tab Switching ---
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tab = btn.dataset.tab;
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            Object.values(sections).forEach(s => s.style.display = 'none');
+            sections[tab].style.display = 'block';
+
+            if (tab === 'rewards-history') loadClaims();
         });
     });
 
-    // --- Admin Panel Logic ---
-    const loadData = () => {
-        const localData = localStorage.getItem(`leaderboardData_${currentType}`);
-        if (localData) {
-            leaderboardData = JSON.parse(localData);
-            renderForm();
-        } else {
-            const config = typeConfig[currentType];
-            fetch(config.dataFile)
-                .then(res => res.json())
-                .then(data => {
-                    leaderboardData = data;
-                    renderForm();
-                })
-                .catch(err => console.error('Error loading data', err));
-        }
+    // --- Leaderboard Logic ---
+    const loadLeaderboardData = () => {
+        const config = typeConfig[currentType];
+        fetch(config.dataFile)
+            .then(res => res.json())
+            .then(data => {
+                leaderboardData = data;
+                renderLeaderboardForm();
+            })
+            .catch(err => console.error('Error loading data', err));
     };
 
-    if (typeSelect) {
-        typeSelect.addEventListener('change', (e) => {
-            currentType = e.target.value;
-            adminTitle.textContent = typeConfig[currentType].title;
-            loadData();
-        });
-    }
-
-    const renderForm = () => {
+    const renderLeaderboardForm = () => {
         lbDateInput.value = leaderboardData.date;
         lbCountdownEndInput.value = leaderboardData.countdownEnd || "";
         lbStatusInput.value = leaderboardData.status;
@@ -155,106 +136,174 @@ document.addEventListener('DOMContentLoaded', function () {
                 <input type="text" value="${user.username}" class="edit-username" data-index="${index}">
                 <input type="number" step="0.01" value="${user.wagered}" class="edit-wagered" data-index="${index}">
                 <input type="number" step="0.01" value="${user.prize}" class="edit-prize" data-index="${index}">
-                <input type="text" value="${user.site || ''}" placeholder="e.g. Stake" class="edit-site" data-index="${index}">
-                <input type="text" value="${user.logo || ''}" placeholder="Path to logo/icon" class="edit-logo" data-index="${index}">
+                <input type="text" value="${user.site || ''}" placeholder="Site" class="edit-site" data-index="${index}">
+                <input type="text" value="${user.logo || ''}" placeholder="Logo URL" class="edit-logo" data-index="${index}">
                 <button class="btn btn-delete" data-index="${index}">Delete</button>
             `;
             usersList.appendChild(row);
         });
     };
 
-    addUserBtn.addEventListener('click', () => {
-        const nextPlace = leaderboardData.users.length + 1;
-        leaderboardData.users.push({
-            place: nextPlace,
-            username: "New User",
-            wagered: 0,
-            prize: 0,
-            site: "Stake"
-        });
-        renderForm();
-    });
-
-    usersList.addEventListener('click', (e) => {
-        if (e.target.classList.contains('btn-delete')) {
-            const index = e.target.dataset.index;
-            leaderboardData.users.splice(index, 1);
-            renderForm();
-        }
-    });
-
-    usersList.addEventListener('input', (e) => {
-        const index = e.target.dataset.index;
-        const value = e.target.value;
-
-        if (e.target.classList.contains('edit-place')) leaderboardData.users[index].place = parseInt(value);
-        if (e.target.classList.contains('edit-username')) leaderboardData.users[index].username = value;
-        if (e.target.classList.contains('edit-wagered')) leaderboardData.users[index].wagered = parseFloat(value);
-        if (e.target.classList.contains('edit-prize')) leaderboardData.users[index].prize = parseFloat(value);
-        if (e.target.classList.contains('edit-site')) leaderboardData.users[index].site = value;
-        if (e.target.classList.contains('edit-logo')) leaderboardData.users[index].logo = value;
-    });
-
     saveBtn.addEventListener('click', () => {
         leaderboardData.date = lbDateInput.value;
         leaderboardData.countdownEnd = lbCountdownEndInput.value;
         leaderboardData.status = lbStatusInput.value;
-        leaderboardData.updatedAt = new Date().toISOString();
-
-        localStorage.setItem(`leaderboardData_${currentType}`, JSON.stringify(leaderboardData));
-
-        notif.style.display = 'block';
-        setTimeout(() => notif.style.display = 'none', 3000);
 
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(leaderboardData, null, 4));
         const downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
         const filename = currentType === 'weekly' ? 'leaderboard.json' : 'monthly-leaderboard.json';
         downloadAnchorNode.setAttribute("download", filename);
-        document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
-        downloadAnchorNode.remove();
-
-        alert(`Changes saved to browser! A '${filename}' file has been downloaded. To make changes permanent for everyone, please replace the file in 'data/${filename}' with this new one.`);
+        
+        showNotification("Changes saved! Remember to upload the JSON file.");
     });
 
-    archiveBtn.addEventListener('click', () => {
-        const config = typeConfig[currentType];
-        fetch(config.historyFile)
-            .then(res => res.json())
-            .then(historyData => {
-                const exists = historyData.some(h => h.date === lbDateInput.value);
-                if (exists) {
-                    if (!confirm("A leaderboard with this date already exists in history. Overwrite?")) return;
-                    historyData = historyData.filter(h => h.date !== lbDateInput.value);
-                }
+    // --- Daily Case Logic ---
+    const loadPrizes = async () => {
+        try {
+            const res = await fetch('/api/admin/prizes');
+            const prizes = await res.json();
+            renderPrizes(prizes);
+        } catch (err) {
+            console.error('Error loading prizes:', err);
+        }
+    };
 
-                const newHistoryEntry = {
-                    date: lbDateInput.value,
-                    status: lbStatusInput.value,
-                    updatedAt: new Date().toISOString(),
-                    users: JSON.parse(JSON.stringify(leaderboardData.users))
-                };
+    const renderPrizes = (prizes) => {
+        prizesList.innerHTML = '';
+        prizes.forEach(prize => {
+            const row = document.createElement('div');
+            row.className = 'user-grid';
+            row.style.gridTemplateColumns = '1.5fr 1fr 1fr 2fr 120px';
+            row.innerHTML = `
+                <input type="text" value="${prize.name}" class="prize-edit-name" data-id="${prize.id}">
+                <input type="number" step="0.01" value="${prize.value}" class="prize-edit-value" data-id="${prize.id}">
+                <input type="number" value="${prize.weight}" class="prize-edit-weight" data-id="${prize.id}">
+                <div style="padding: 10px; font-size: 11px; overflow: hidden; text-overflow: ellipsis; color: #888;">${prize.image_url}</div>
+                <div style="display: flex; gap: 5px;">
+                    <button class="btn btn-save save-prize-edit" data-id="${prize.id}" style="padding: 5px 10px; font-size: 12px;"><i class="fas fa-save"></i></button>
+                    <button class="btn btn-delete delete-prize" data-id="${prize.id}" style="padding: 5px 10px; font-size: 12px;"><i class="fas fa-trash"></i></button>
+                </div>
+            `;
+            prizesList.appendChild(row);
+        });
+    };
 
-                historyData.push(newHistoryEntry);
+    addPrizeBtn.addEventListener('click', async () => {
+        const formData = new FormData();
+        formData.append('name', document.getElementById('new-prize-name').value);
+        formData.append('value', document.getElementById('new-prize-value').value);
+        formData.append('weight', document.getElementById('new-prize-weight').value);
+        formData.append('image', document.getElementById('new-prize-image').files[0]);
 
-                const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(historyData, null, 4));
-                const downloadAnchorNode = document.createElement('a');
-                downloadAnchorNode.setAttribute("href", dataStr);
-                const historyFilename = currentType === 'weekly' ? 'leaderboard-history.json' : 'monthly-leaderboard-history.json';
-                downloadAnchorNode.setAttribute("download", historyFilename);
-                document.body.appendChild(downloadAnchorNode);
-                downloadAnchorNode.click();
-                downloadAnchorNode.remove();
-
-                alert(`Current data archived! A '${historyFilename}' file has been downloaded. Please replace the file in 'data/${historyFilename}' with this new one.`);
-            })
-            .catch(err => {
-                console.error('Error archiving:', err);
-                alert(`Please make sure 'data/${typeConfig[currentType].historyFile}' exists and is accessible.`);
+        try {
+            const res = await fetch('/api/admin/prizes', {
+                method: 'POST',
+                body: formData
             });
+            if (res.ok) {
+                showNotification("Prize added successfully!");
+                loadPrizes();
+                document.getElementById('add-prize-form').reset();
+            }
+        } catch (err) {
+            console.error('Error adding prize:', err);
+        }
     });
 
-    // Initial check
+    prizesList.addEventListener('click', async (e) => {
+        const id = e.target.closest('button')?.dataset.id;
+        if (!id) return;
+
+        if (e.target.closest('.delete-prize')) {
+            if (confirm("Delete this prize?")) {
+                await fetch(`/api/admin/prizes/${id}`, { method: 'DELETE' });
+                loadPrizes();
+            }
+        }
+
+        if (e.target.closest('.save-prize-edit')) {
+            const row = e.target.closest('.user-grid');
+            const name = row.querySelector('.prize-edit-name').value;
+            const value = row.querySelector('.prize-edit-value').value;
+            const weight = row.querySelector('.prize-edit-weight').value;
+
+            try {
+                const res = await fetch(`/api/admin/prizes/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, value, weight, is_active: 1 })
+                });
+                if (res.ok) showNotification("Prize updated!");
+            } catch (err) {
+                console.error('Update failed:', err);
+            }
+        }
+    });
+
+    // --- Rewards History Logic ---
+    const loadClaims = async () => {
+        try {
+            const res = await fetch('/api/admin/claims');
+            claimsData = await res.json();
+            renderClaims();
+        } catch (err) {
+            console.error('Error loading claims:', err);
+        }
+    };
+
+    const renderClaims = () => {
+        claimsList.innerHTML = '';
+        
+        const sortedData = [...claimsData].sort((a, b) => {
+            let valA = a[currentSort.key];
+            let valB = b[currentSort.key];
+            if (currentSort.key === 'claimed_at') {
+                valA = new Date(valA);
+                valB = new Date(valB);
+            }
+            if (currentSort.order === 'asc') return valA > valB ? 1 : -1;
+            return valA < valB ? 1 : -1;
+        });
+
+        sortedData.forEach(claim => {
+            const row = document.createElement('div');
+            row.className = 'user-grid';
+            row.style.gridTemplateColumns = '2fr 1fr 1fr 2fr';
+            row.style.borderBottom = '1px solid #1a1a1a';
+            row.innerHTML = `
+                <div style="padding: 10px;">${claim.username}</div>
+                <div style="padding: 10px; color: var(--orange-web);">${claim.prize_name}</div>
+                <div style="padding: 10px;">${claim.amount} USDT</div>
+                <div style="padding: 10px; color: #666; font-size: 13px;">${new Date(claim.claimed_at).toLocaleString()}</div>
+            `;
+            claimsList.appendChild(row);
+        });
+    };
+
+    sortableHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const key = header.dataset.sort;
+            if (currentSort.key === key) {
+                currentSort.order = currentSort.order === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.key = key;
+                currentSort.order = 'asc';
+            }
+            
+            sortableHeaders.forEach(h => h.querySelector('i').className = 'fas fa-sort');
+            header.querySelector('i').className = `fas fa-sort-${currentSort.order === 'asc' ? 'up' : 'down'}`;
+            
+            renderClaims();
+        });
+    });
+
+    const showNotification = (text) => {
+        notif.textContent = text;
+        notif.style.display = 'block';
+        setTimeout(() => notif.style.display = 'none', 3000);
+    };
+
     checkAuth();
 });
